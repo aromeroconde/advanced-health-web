@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function NosotrosPage() {
+export default function Nosotros({ params: { lang } }: { params: { lang: string } }) {
     const values = [
         {
             icon: 'biotech',
@@ -197,7 +197,7 @@ export default function NosotrosPage() {
             {/* ═══ CTA ═══ */}
             <section style={{ padding: '8rem 2rem', textAlign: 'center' }}>
                 <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>¿Listo para el siguiente nivel?</h2>
-                <Link href="/productos" className="btn btn-primary">
+                <Link href={`/${lang}/productos`} className="btn btn-primary">
                     EXPLORAR PRODUCTOS
                 </Link>
             </section>

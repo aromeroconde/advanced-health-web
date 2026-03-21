@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import NewsletterForm from '@/components/NewsletterForm';
+import { getDictionary } from '@/lib/dictionaries';
 
 // ─── Data ──────────────────────────────────────────
 const bestSellers = [
@@ -65,7 +66,9 @@ const whyItems = [
 ];
 
 // ─── Component ─────────────────────────────────────
-export default function HomePage() {
+export default async function HomePage({ params: { lang } }: { params: { lang: string } }) {
+  const dict = await getDictionary(lang as 'es' | 'en');
+
   return (
     <>
       {/* ═══ HERO SECTION ═══ */}
@@ -118,9 +121,9 @@ export default function HomePage() {
                 marginBottom: '2rem',
               }}
             >
-              Vitalidad{' '}
+              {dict.home.hero.title_1}{' '}
               <br />
-              <span style={{ color: 'var(--primary)' }}>Celular.</span>
+              <span style={{ color: 'var(--primary)' }}>{dict.home.hero.title_2}</span>
             </h1>
 
             <p
@@ -133,15 +136,15 @@ export default function HomePage() {
                 maxWidth: '28rem',
               }}
             >
-              Nutrición avanzada diseñada para el rendimiento humano. Ciencia pura, resultados probados.
+              {dict.home.hero.desc}
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/productos" className="btn btn-primary">
-                COMPRAR AHORA
+              <Link href={`/${lang}/productos`} className="btn btn-primary">
+                {dict.home.hero.cta_primary}
               </Link>
-              <Link href="/ciencia" className="btn btn-outline">
-                NUESTRA CIENCIA
+              <Link href={`/${lang}/blog`} className="btn btn-outline">
+                {dict.home.hero.cta_secondary}
               </Link>
             </div>
           </div>
@@ -370,7 +373,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              href="/productos"
+              href={`/${lang}/productos`}
               style={{
                 fontSize: '0.875rem',
                 fontFamily: 'var(--font-body)',

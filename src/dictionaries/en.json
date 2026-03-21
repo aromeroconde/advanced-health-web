@@ -1,0 +1,20 @@
+{
+    "navbar": {
+        "tienda": "Shop",
+        "ciencia": "Science",
+        "acerca_de": "About Us",
+        "soporte": "Support",
+        "cuenta": "My Account",
+        "buscar": "Search products..."
+    },
+    "home": {
+        "hero": {
+            "badge": "CLINICAL INNOVATION",
+            "title_1": "Advanced Nutrition",
+            "title_2": "Measurable Results.",
+            "desc": "Editorial-grade formulas and clinical efficacy. Discover supplements designed for human performance and cellular longevity.",
+            "cta_primary": "Explore Formulas",
+            "cta_secondary": "Learn the Science"
+        }
+    }
+}

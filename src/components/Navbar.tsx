@@ -4,16 +4,19 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const navLinks = [
-  { href: '/productos', label: 'Tienda' },
-  { href: '/blog', label: 'Ciencia' },
-  { href: '/nosotros', label: 'Acerca de' },
-  { href: '/soporte', label: 'Soporte' },
-];
-
-export default function Navbar() {
+export default function Navbar({ lang, dict }: { lang: string, dict: Record<string, string> }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+
+  // Eliminar el locale del pathname para chequear rutas activas
+  const pathWithoutLang = pathname.replace(`/${lang}`, '') || '/';
+
+  const navLinks = [
+    { href: `/${lang}/productos`, match: '/productos', label: dict.tienda },
+    { href: `/${lang}/blog`, match: '/blog', label: dict.ciencia },
+    { href: `/${lang}/nosotros`, match: '/nosotros', label: dict.acerca_de },
+    { href: `/${lang}/soporte`, match: '/soporte', label: dict.soporte },
+  ];
 
   return (
     <header className="navbar-glass">
@@ -30,13 +33,13 @@ export default function Navbar() {
         {/* Logo + Nav Links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
           <Link
-            href="/"
+            href={`/${lang}`}
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <img
               src="/logo-advanced-health-COLOR_HORIZONTAL.png"
               alt="Advanced Health"
-              style={{ height: '56px', width: 'auto' }}
+              style={{ height: '80px', width: 'auto' }}
             />
           </Link>
 
@@ -46,7 +49,7 @@ export default function Navbar() {
             className="desktop-nav"
           >
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathWithoutLang.startsWith(link.match) || (pathWithoutLang === '/' && link.match === '/');
               return (
                 <Link
                   key={link.href}
@@ -76,12 +79,30 @@ export default function Navbar() {
             <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', color: 'var(--outline)' }}>
               search
             </span>
-            <input type="text" placeholder="Buscar productos..." />
+            <input type="text" placeholder={dict.buscar || "Buscar productos..."} />
           </div>
+
+          {/* Language Switcher */}
+          <Link
+            href={pathname.replace(`/${lang}`, `/${lang === 'en' ? 'es' : 'en'}`)}
+            style={{
+              fontSize: '0.875rem',
+              fontFamily: 'var(--font-headline)',
+              fontWeight: 700,
+              color: 'var(--primary)',
+              textDecoration: 'none',
+              border: '1px solid var(--primary)',
+              padding: '0.25rem 0.5rem',
+              borderRadius: 'var(--radius-sm)',
+            }}
+            className="desktop-nav"
+          >
+            {lang === 'en' ? 'ES' : 'EN'}
+          </Link>
 
           {/* Mi Cuenta */}
           <Link
-            href="/cuenta"
+            href={`/${lang}/cuenta`}
             style={{
               fontSize: '0.875rem',
               fontFamily: 'var(--font-body)',
@@ -91,7 +112,7 @@ export default function Navbar() {
             }}
             className="desktop-nav"
           >
-            Mi Cuenta
+            {dict.cuenta || "Mi Cuenta"}
           </Link>
 
           {/* Cart */}

@@ -36,7 +36,7 @@ const socialLinks = [
   { icon: 'video_library', href: '#', label: 'YouTube' },
 ];
 
-export default function Footer() {
+export default function Footer({ lang, dict }: { lang: string, dict?: Record<string, string> }) {
   return (
     <footer
       style={{
@@ -60,7 +60,7 @@ export default function Footer() {
           <img
             src="/logo-advanced-health-NEGRO_HORIZONTAL.png"
             alt="Advanced Health"
-            style={{ height: '50px', width: 'auto', marginBottom: '1.5rem' }}
+            style={{ height: '80px', width: 'auto', marginBottom: '1.5rem' }}
           />
           <p
             style={{
@@ -104,7 +104,6 @@ export default function Footer() {
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 color: 'var(--primary)',
-                marginBottom: '2rem',
               }}
             >
               {col.title}
@@ -113,7 +112,7 @@ export default function Footer() {
               {col.links.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={`/${lang}${link.href}`}
                     style={{
                       fontSize: '0.875rem',
                       fontFamily: 'var(--font-body)',
@@ -129,6 +128,26 @@ export default function Footer() {
             </ul>
           </div>
         ))}
+
+        {/* New Column: Explorar */}
+        <div>
+          <h4 style={{ fontFamily: 'var(--font-headline)', fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--on-surface)' }}>Explorar</h4>
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <li><Link href={`/${lang}/productos`} className="footer-link">{dict?.tienda || "Tienda"}</Link></li>
+            <li><Link href={`/${lang}/blog`} className="footer-link">{dict?.ciencia || "Ciencia"}</Link></li>
+            <li><Link href={`/${lang}/nosotros`} className="footer-link">{dict?.acerca_de || "Acerca de"}</Link></li>
+            <li><Link href={`/${lang}/soporte`} className="footer-link">{dict?.soporte || "Soporte"}</Link></li>
+          </ul>
+        </div>
+
+        {/* New Column: Legal */}
+        <div>
+          <h4 style={{ fontFamily: 'var(--font-headline)', fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--on-surface)' }}>Legal</h4>
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <li><Link href={`/${lang}/terminos`} className="footer-link">Términos de Servicio</Link></li>
+            <li><Link href={`/${lang}/privacidad`} className="footer-link">Política de Privacidad</Link></li>
+          </ul>
+        </div>
       </div>
 
       {/* Bottom Bar */}

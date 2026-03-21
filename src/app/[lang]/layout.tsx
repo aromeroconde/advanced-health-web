@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '../globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { getDictionary } from '@/lib/dictionaries';
 
 export const metadata: Metadata = {
   title: {
@@ -20,13 +21,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
+  const dict = await getDictionary(params.lang as 'es' | 'en');
+
   return (
-    <html lang="es">
+    <html lang={params.lang}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -39,10 +44,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Navbar />
+      <body suppressHydrationWarning>
+        <Navbar lang={params.lang} dict={dict.navbar} />
         <main id="main-content">{children}</main>
-        <Footer />
+        <Footer lang={params.lang} dict={dict.navbar} />
       </body>
     </html>
   );

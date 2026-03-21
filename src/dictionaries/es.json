@@ -1,0 +1,20 @@
+{
+    "navbar": {
+        "tienda": "Tienda",
+        "ciencia": "Ciencia",
+        "acerca_de": "Acerca de",
+        "soporte": "Soporte",
+        "cuenta": "Mi Cuenta",
+        "buscar": "Buscar productos..."
+    },
+    "home": {
+        "hero": {
+            "badge": "INNOVACIÓN CLÍNICA",
+            "title_1": "Nutrición Avanzada",
+            "title_2": "Resultados Medibles.",
+            "desc": "Fórmulas de grado editorial y eficacia clínica. Descubre suplementos diseñados para el rendimiento humano y la longevidad celular.",
+            "cta_primary": "Explorar Fórmulas",
+            "cta_secondary": "Conocer la Ciencia"
+        }
+    }
+}
