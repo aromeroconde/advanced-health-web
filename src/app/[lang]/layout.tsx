@@ -26,12 +26,13 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const dict = await getDictionary(params.lang as 'es' | 'en');
+  const { lang } = await params;
+  const dict = await getDictionary(lang as 'es' | 'en');
 
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -45,9 +46,9 @@ export default async function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <Navbar lang={params.lang} dict={dict.navbar} />
+        <Navbar lang={lang} dict={dict.navbar} />
         <main id="main-content">{children}</main>
-        <Footer lang={params.lang} dict={dict.navbar} />
+        <Footer lang={lang} dict={dict.navbar} />
       </body>
     </html>
   );

@@ -60,7 +60,7 @@ export default function Footer({ lang, dict }: { lang: string, dict?: Record<str
           <img
             src="/logo-advanced-health-NEGRO_HORIZONTAL.png"
             alt="Advanced Health"
-            style={{ height: '80px', width: 'auto', marginBottom: '1.5rem' }}
+            style={{ height: '120px', width: 'auto', marginBottom: '1.5rem' }}
           />
           <p
             style={{

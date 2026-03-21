@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-export default function Nosotros({ params: { lang } }: { params: { lang: string } }) {
+export default async function Nosotros({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
     const values = [
         {
             icon: 'biotech',

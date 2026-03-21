@@ -39,7 +39,7 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
             <img
               src="/logo-advanced-health-COLOR_HORIZONTAL.png"
               alt="Advanced Health"
-              style={{ height: '80px', width: 'auto' }}
+              style={{ height: '120px', width: 'auto' }}
             />
           </Link>
 

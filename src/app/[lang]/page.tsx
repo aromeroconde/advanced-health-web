@@ -66,7 +66,8 @@ const whyItems = [
 ];
 
 // ─── Component ─────────────────────────────────────
-export default async function HomePage({ params: { lang } }: { params: { lang: string } }) {
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const dict = await getDictionary(lang as 'es' | 'en');
 
   return (
