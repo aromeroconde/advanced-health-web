@@ -1,28 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function SoportePage() {
     const [submitted, setSubmitted] = useState(false);
+    const pathname = usePathname();
+    const lang = pathname.startsWith('/en') ? 'en' : 'es';
 
-    const faqs = [
-        {
-            q: '¿Cómo puedo rastrear mi pedido?',
-            a: 'Una vez que tu pedido sea despachado, recibirás un correo electrónico con el número de guía y un enlace para el seguimiento en tiempo real.',
-        },
-        {
-            q: '¿Los productos tienen registro sanitario?',
-            a: 'Sí, absolutamente todos nuestros productos cuentan con registro INVIMA vigente y cumplen con los más altos estándares de calidad.',
-        },
-        {
-            q: '¿Hacen envíos a todo el país?',
-            a: 'Realizamos envíos a todas las ciudades principales e intermedias de Colombia a través de nuestros aliados logísticos.',
-        },
-        {
-            q: '¿Cuál es la política de devoluciones?',
-            a: 'Si no estás satisfecho con tu compra, tienes hasta 30 días para solicitar un cambio o devolución de dinero, siempre que el producto esté sellado.',
-        },
-    ];
+    const [t, setT] = useState<Record<string, any> | null>(null);
+
+    useEffect(() => {
+        import(`@/dictionaries/${lang}.json`).then((mod) => setT(mod.default.soporte));
+    }, [lang]);
+
+    if (!t) return null;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,7 +53,7 @@ export default function SoportePage() {
                             marginBottom: '2rem',
                         }}
                     >
-                        Estamos para Ayudarte.
+                        {t.title}
                     </h1>
                     <p
                         style={{
@@ -72,7 +64,7 @@ export default function SoportePage() {
                             margin: '0 auto',
                         }}
                     >
-                        ¿Tienes alguna duda técnica o sobre tu pedido? Nuestro equipo clínico y de soporte está listo para asistirte.
+                        {t.desc}
                     </p>
                 </div>
             </section>
@@ -91,9 +83,9 @@ export default function SoportePage() {
                 >
                     {/* FAQ COLUMN */}
                     <div>
-                        <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>Preguntas <span style={{ color: 'var(--primary)' }}>Frecuentes</span></h2>
+                        <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>{t.faq_title} <span style={{ color: 'var(--primary)' }}>{t.faq_highlight}</span></h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                            {faqs.map((item, idx) => (
+                            {t.faqs.map((item: { q: string; a: string }, idx: number) => (
                                 <details
                                     key={idx}
                                     style={{
@@ -146,16 +138,16 @@ export default function SoportePage() {
                                 boxShadow: 'var(--shadow-lg)',
                             }}
                         >
-                            <h2 style={{ fontSize: '1.75rem', marginBottom: '2.5rem' }}>Escríbenos</h2>
+                            <h2 style={{ fontSize: '1.75rem', marginBottom: '2.5rem' }}>{t.form_title}</h2>
 
                             {submitted ? (
                                 <div style={{ textAlign: 'center', padding: '2rem' }}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '4rem', color: 'var(--primary)', marginBottom: '1rem' }}>
                                         check_circle
                                     </span>
-                                    <h3 style={{ marginBottom: '1rem' }}>¡Mensaje Recibido!</h3>
-                                    <p style={{ color: 'var(--on-surface-variant)' }}>Te contactaremos en menos de 24 horas hábiles.</p>
-                                    <button className="btn btn-outline" style={{ marginTop: '2rem' }} onClick={() => setSubmitted(false)}>ENVIAR OTRO</button>
+                                    <h3 style={{ marginBottom: '1rem' }}>{t.form_success_title}</h3>
+                                    <p style={{ color: 'var(--on-surface-variant)' }}>{t.form_success_desc}</p>
+                                    <button className="btn btn-outline" style={{ marginTop: '2rem' }} onClick={() => setSubmitted(false)}>{t.form_another}</button>
                                 </div>
                             ) : (
                                 <form
@@ -163,33 +155,18 @@ export default function SoportePage() {
                                     style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
                                 >
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>Nombre Completo</label>
-                                        <input
-                                            required
-                                            type="text"
-                                            style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }}
-                                            placeholder="Ej. Juan Pérez"
-                                        />
+                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_name}</label>
+                                        <input required type="text" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_name_ph} />
                                     </div>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>Email</label>
-                                        <input
-                                            required
-                                            type="email"
-                                            style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }}
-                                            placeholder="juan@ejemplo.com"
-                                        />
+                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_email}</label>
+                                        <input required type="email" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_email_ph} />
                                     </div>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>Mensaje</label>
-                                        <textarea
-                                            required
-                                            rows={5}
-                                            style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff', resize: 'vertical' }}
-                                            placeholder="¿En qué podemos ayudarte?"
-                                        ></textarea>
+                                        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_message}</label>
+                                        <textarea required rows={5} style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff', resize: 'vertical' }} placeholder={t.form_message_ph}></textarea>
                                     </div>
-                                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>ENVIAR MENSAJE</button>
+                                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>{t.form_submit}</button>
                                 </form>
                             )}
                         </div>

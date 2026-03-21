@@ -15,6 +15,202 @@
             "desc": "Fórmulas de grado editorial y eficacia clínica. Descubre suplementos diseñados para el rendimiento humano y la longevidad celular.",
             "cta_primary": "Explorar Fórmulas",
             "cta_secondary": "Conocer la Ciencia"
-        }
+        },
+        "categories": "Categorías",
+        "categories_highlight": "Destacadas",
+        "best_sellers": "Nuestros",
+        "best_sellers_highlight": "Best Sellers",
+        "best_sellers_sub": "Fórmulas galardonadas por expertos.",
+        "view_all": "Ver Todo el Catálogo",
+        "add_to_cart": "Añadir al carrito",
+        "why_label": "Nuestra Diferencia",
+        "why_title": "Por qué elegir",
+        "why_highlight": "Advanced Health",
+        "why_items": [
+            {
+                "title": "Calidad Clínica",
+                "desc": "Fórmulas desarrolladas por científicos líderes con ingredientes de grado farmacéutico para máxima biodisponibilidad."
+            },
+            {
+                "title": "Ingredientes Puros",
+                "desc": "Sin rellenos, sin colorantes artificiales. Solo lo que tu cuerpo necesita, en su forma más natural y efectiva."
+            },
+            {
+                "title": "Transparencia Total",
+                "desc": "Trazabilidad completa de cada lote. Publicamos nuestros análisis de terceros para asegurar tu tranquilidad."
+            }
+        ],
+        "cta_title": "Únete a la Revolución del Bienestar",
+        "cta_desc": "Suscríbete para recibir consejos clínicos de salud y un 15% de descuento en tu primer pedido.",
+        "treatments_label": "Tratamientos Fabricados"
+    },
+    "productos": {
+        "badge": "Catálogo Editorial",
+        "title": "Encuentra tu",
+        "title_highlight": "Bienestar",
+        "desc": "Descubre nuestra selección curada de suplementos y soluciones clínicas diseñadas para optimizar cada aspecto de tu salud celular.",
+        "clinical_label": "Respaldo",
+        "clinical_value": "100% Clínico",
+        "filter_need": "Necesidad",
+        "filter_category": "Categoría",
+        "needs": [
+            "Salud Ósea",
+            "Piel & Vitalidad",
+            "Energía Celular",
+            "Inmunidad"
+        ],
+        "categories": [
+            "Todos los Productos",
+            "Suplementos",
+            "Cuidado Tópico",
+            "Kits de Salud"
+        ],
+        "advisory_label": "Asesoría",
+        "advisory_text": "¿No sabes qué elegir? Habla con un especialista clínico.",
+        "advisory_btn": "Contactar",
+        "reviews_suffix": "reseñas",
+        "load_more": "Cargar más productos",
+        "add_to_cart": "Añadir al carrito",
+        "badges": {
+            "best_seller": "Más Vendido",
+            "new": "Nuevo"
+        },
+        "products": [
+            {
+                "name": "Complex Vitality O3",
+                "desc": "Fórmula avanzada con Omega-3 purificado y antioxidantes para la regeneración celular."
+            },
+            {
+                "name": "Dermal Restore Serum",
+                "desc": "Sérum de grado clínico con ácido hialurónico de tres pesos moleculares."
+            },
+            {
+                "name": "Immune Defense Pack",
+                "desc": "Combinación estratégica de Vitamina D3, K2 y Zinc Quelado."
+            },
+            {
+                "name": "Bone Strength Complex",
+                "desc": "Calcio orgánico con magnesio marino para máxima absorción ósea."
+            },
+            {
+                "name": "Neuro Focus Elite",
+                "desc": "Nootrópico de amplio espectro para claridad mental y reducción de cortisol."
+            },
+            {
+                "name": "Cellular Energy B‑12",
+                "desc": "Metilcobalamina sublingual de alta potencia para energía sostenida."
+            }
+        ]
+    },
+    "blog": {
+        "badge": "Ciencia & Bienestar",
+        "title": "El Blog de",
+        "title_highlight": "Advanced Health Company",
+        "featured_badge": "Destacado",
+        "read_more": "Leer más",
+        "read": "Leer",
+        "reading_suffix": "lectura",
+        "tags": [
+            "Todos",
+            "Ciencia",
+            "Rendimiento",
+            "Inmunidad",
+            "Nutrición",
+            "Salud Mental"
+        ],
+        "articles": [
+            {
+                "category": "Ciencia",
+                "title": "El Colágeno en la Regeneración Celular: Más Allá de la Piel",
+                "excerpt": "Nueva evidencia clínica respalda el uso de péptidos de colágeno tipo I y III para la restauración del tejido conectivo. Un análisis profundo de los mecanismos biológicos."
+            },
+            {
+                "category": "Rendimiento",
+                "title": "Magnesio y el Sueño Profundo: La Conexión Molecular",
+                "excerpt": "Exploramos cómo las diferentes formas de magnesio afectan la arquitectura del sueño y la recuperación neuro-muscular."
+            },
+            {
+                "category": "Inmunidad",
+                "title": "Vitamina D3 + K2: El Protocolo de Invierno Definitivo",
+                "excerpt": "Por qué suplementar con D3 sola es insuficiente y cómo la K2 complementa su función en el metabolismo óseo y cardiovascular."
+            },
+            {
+                "category": "Salud Mental",
+                "title": "Adaptógenos y el Eje Hipotálamo-Hipófiso-Suprarrenal",
+                "excerpt": "Ashwagandha, Rhodiola y Reishi: mecanismos de acción sobre el eje del estrés respaldados por ensayos clínicos."
+            },
+            {
+                "category": "Nutrición",
+                "title": "Microbioma Intestinal: La Nueva Frontera del Bienestar Sistémico",
+                "excerpt": "Reprogramar la flora intestinal con probióticos clínicos de tercera generación. Implicaciones para la salud inmune, mental y metabólica."
+            }
+        ]
+    },
+    "nosotros": {
+        "badge": "Nuestra",
+        "badge_highlight": "Misión",
+        "title_1": "Redefiniendo el",
+        "title_mid": "Estándar",
+        "title_highlight": "Vitalidad.",
+        "title_connector": "de",
+        "desc": "Nacimos de la necesidad de suplementos que realmente cumplan lo que prometen. Ciencia pura, transparencia total.",
+        "story_title": "Nuestra",
+        "story_highlight": "Historia",
+        "story_p1": "Advanced Health comenzó en un pequeño laboratorio con una idea simple: la nutrición debe ser tratada con la misma rigurosidad que la medicina.",
+        "story_p2": "Hoy, colaboramos con los mejores científicos y nutricionistas del mundo para desarrollar fórmulas que no solo mejoran tu salud, sino que optimizan tu vida.",
+        "story_p3": "No buscamos ser la marca más grande, sino la más confiable. Por eso, cada lote de nuestros productos es sometido a pruebas de terceros para asegurar su pureza y potencia.",
+        "values_title": "Nuestros",
+        "values_highlight": "Valores",
+        "values": [
+            {
+                "title": "Ciencia Aplicada",
+                "desc": "No creemos en tendencias, creemos en datos. Cada fórmula es el resultado de años de investigación clínica."
+            },
+            {
+                "title": "Pureza Absoluta",
+                "desc": "Seleccionamos solo ingredientes con la mayor biodisponibilidad, libres de rellenos innecesarios."
+            },
+            {
+                "title": "Rendimiento Humano",
+                "desc": "Nuestra misión es potenciar tu biología para que alcances tu máximo potencial físico y mental."
+            }
+        ],
+        "cta": "¿Listo para el siguiente nivel?",
+        "cta_btn": "EXPLORAR PRODUCTOS"
+    },
+    "soporte": {
+        "title": "Estamos para Ayudarte.",
+        "desc": "¿Tienes alguna duda técnica o sobre tu pedido? Nuestro equipo clínico y de soporte está listo para asistirte.",
+        "faq_title": "Preguntas",
+        "faq_highlight": "Frecuentes",
+        "faqs": [
+            {
+                "q": "¿Cómo puedo rastrear mi pedido?",
+                "a": "Una vez que tu pedido sea despachado, recibirás un correo electrónico con el número de guía y un enlace para el seguimiento en tiempo real."
+            },
+            {
+                "q": "¿Los productos tienen registro sanitario?",
+                "a": "Sí, absolutamente todos nuestros productos cuentan con registro INVIMA vigente y cumplen con los más altos estándares de calidad."
+            },
+            {
+                "q": "¿Hacen envíos a todo el país?",
+                "a": "Realizamos envíos a todas las ciudades principales e intermedias de Colombia a través de nuestros aliados logísticos."
+            },
+            {
+                "q": "¿Cuál es la política de devoluciones?",
+                "a": "Si no estás satisfecho con tu compra, tienes hasta 30 días para solicitar un cambio o devolución de dinero, siempre que el producto esté sellado."
+            }
+        ],
+        "form_title": "Escríbenos",
+        "form_name": "Nombre Completo",
+        "form_email": "Email",
+        "form_message": "Mensaje",
+        "form_name_ph": "Ej. Juan Pérez",
+        "form_email_ph": "juan@ejemplo.com",
+        "form_message_ph": "¿En qué podemos ayudarte?",
+        "form_submit": "ENVIAR MENSAJE",
+        "form_success_title": "¡Mensaje Recibido!",
+        "form_success_desc": "Te contactaremos en menos de 24 horas hábiles.",
+        "form_another": "ENVIAR OTRO"
     }
 }

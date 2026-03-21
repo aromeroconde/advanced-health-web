@@ -15,6 +15,202 @@
             "desc": "Editorial-grade formulas and clinical efficacy. Discover supplements designed for human performance and cellular longevity.",
             "cta_primary": "Explore Formulas",
             "cta_secondary": "Learn the Science"
-        }
+        },
+        "categories": "Featured",
+        "categories_highlight": "Categories",
+        "best_sellers": "Our",
+        "best_sellers_highlight": "Best Sellers",
+        "best_sellers_sub": "Award-winning formulas by experts.",
+        "view_all": "View Full Catalog",
+        "add_to_cart": "Add to cart",
+        "why_label": "Our Difference",
+        "why_title": "Why choose",
+        "why_highlight": "Advanced Health",
+        "why_items": [
+            {
+                "title": "Clinical Quality",
+                "desc": "Formulas developed by leading scientists with pharmaceutical-grade ingredients for maximum bioavailability."
+            },
+            {
+                "title": "Pure Ingredients",
+                "desc": "No fillers, no artificial colorants. Only what your body needs, in its most natural and effective form."
+            },
+            {
+                "title": "Total Transparency",
+                "desc": "Complete traceability of every batch. We publish our third-party analyses to ensure your peace of mind."
+            }
+        ],
+        "cta_title": "Join the Wellness Revolution",
+        "cta_desc": "Subscribe to receive clinical health tips and a 15% discount on your first order.",
+        "treatments_label": "Treatments Manufactured"
+    },
+    "productos": {
+        "badge": "Editorial Catalog",
+        "title": "Find Your",
+        "title_highlight": "Wellness",
+        "desc": "Discover our curated selection of supplements and clinical solutions designed to optimize every aspect of your cellular health.",
+        "clinical_label": "Backed by",
+        "clinical_value": "100% Clinical",
+        "filter_need": "Need",
+        "filter_category": "Category",
+        "needs": [
+            "Bone Health",
+            "Skin & Vitality",
+            "Cellular Energy",
+            "Immunity"
+        ],
+        "categories": [
+            "All Products",
+            "Supplements",
+            "Topical Care",
+            "Health Kits"
+        ],
+        "advisory_label": "Advisory",
+        "advisory_text": "Not sure what to choose? Talk to a clinical specialist.",
+        "advisory_btn": "Contact",
+        "reviews_suffix": "reviews",
+        "load_more": "Load more products",
+        "add_to_cart": "Add to cart",
+        "badges": {
+            "best_seller": "Best Seller",
+            "new": "New"
+        },
+        "products": [
+            {
+                "name": "Complex Vitality O3",
+                "desc": "Advanced formula with purified Omega-3 and antioxidants for cellular regeneration."
+            },
+            {
+                "name": "Dermal Restore Serum",
+                "desc": "Clinical-grade serum with three molecular weight hyaluronic acid."
+            },
+            {
+                "name": "Immune Defense Pack",
+                "desc": "Strategic combination of Vitamin D3, K2 and Chelated Zinc."
+            },
+            {
+                "name": "Bone Strength Complex",
+                "desc": "Organic calcium with marine magnesium for maximum bone absorption."
+            },
+            {
+                "name": "Neuro Focus Elite",
+                "desc": "Broad-spectrum nootropic for mental clarity and cortisol reduction."
+            },
+            {
+                "name": "Cellular Energy B‑12",
+                "desc": "High-potency sublingual methylcobalamin for sustained energy."
+            }
+        ]
+    },
+    "blog": {
+        "badge": "Science & Wellness",
+        "title": "The Blog of",
+        "title_highlight": "Advanced Health Company",
+        "featured_badge": "Featured",
+        "read_more": "Read more",
+        "read": "Read",
+        "reading_suffix": "read",
+        "tags": [
+            "All",
+            "Science",
+            "Performance",
+            "Immunity",
+            "Nutrition",
+            "Mental Health"
+        ],
+        "articles": [
+            {
+                "category": "Science",
+                "title": "Collagen in Cellular Regeneration: Beyond the Skin",
+                "excerpt": "New clinical evidence supports the use of type I and III collagen peptides for connective tissue restoration. A deep analysis of the biological mechanisms."
+            },
+            {
+                "category": "Performance",
+                "title": "Magnesium and Deep Sleep: The Molecular Connection",
+                "excerpt": "We explore how different forms of magnesium affect sleep architecture and neuro-muscular recovery."
+            },
+            {
+                "category": "Immunity",
+                "title": "Vitamin D3 + K2: The Ultimate Winter Protocol",
+                "excerpt": "Why supplementing with D3 alone is insufficient and how K2 complements its function in bone and cardiovascular metabolism."
+            },
+            {
+                "category": "Mental Health",
+                "title": "Adaptogens and the Hypothalamic-Pituitary-Adrenal Axis",
+                "excerpt": "Ashwagandha, Rhodiola and Reishi: mechanisms of action on the stress axis supported by clinical trials."
+            },
+            {
+                "category": "Nutrition",
+                "title": "Gut Microbiome: The New Frontier of Systemic Wellness",
+                "excerpt": "Reprogramming gut flora with third-generation clinical probiotics. Implications for immune, mental and metabolic health."
+            }
+        ]
+    },
+    "nosotros": {
+        "badge": "Our",
+        "badge_highlight": "Mission",
+        "title_1": "Redefining the",
+        "title_mid": "Standard",
+        "title_highlight": "Vitality.",
+        "title_connector": "of",
+        "desc": "We were born from the need for supplements that truly deliver on their promises. Pure science, total transparency.",
+        "story_title": "Our",
+        "story_highlight": "Story",
+        "story_p1": "Advanced Health started in a small laboratory with a simple idea: nutrition should be treated with the same rigor as medicine.",
+        "story_p2": "Today, we collaborate with the world's best scientists and nutritionists to develop formulas that not only improve your health but optimize your life.",
+        "story_p3": "We don't aim to be the biggest brand, but the most trustworthy. That's why every batch of our products undergoes third-party testing to ensure purity and potency.",
+        "values_title": "Our",
+        "values_highlight": "Values",
+        "values": [
+            {
+                "title": "Applied Science",
+                "desc": "We don't believe in trends, we believe in data. Every formula is the result of years of clinical research."
+            },
+            {
+                "title": "Absolute Purity",
+                "desc": "We select only ingredients with the highest bioavailability, free from unnecessary fillers."
+            },
+            {
+                "title": "Human Performance",
+                "desc": "Our mission is to enhance your biology so you can reach your maximum physical and mental potential."
+            }
+        ],
+        "cta": "Ready for the next level?",
+        "cta_btn": "EXPLORE PRODUCTS"
+    },
+    "soporte": {
+        "title": "We're Here to Help.",
+        "desc": "Have a technical question or an order inquiry? Our clinical and support team is ready to assist you.",
+        "faq_title": "Frequently Asked",
+        "faq_highlight": "Questions",
+        "faqs": [
+            {
+                "q": "How can I track my order?",
+                "a": "Once your order is shipped, you'll receive an email with the tracking number and a link for real-time tracking."
+            },
+            {
+                "q": "Are the products FDA approved?",
+                "a": "Yes, all our products comply with the highest quality standards and have valid health registrations."
+            },
+            {
+                "q": "Do you ship nationwide?",
+                "a": "We ship to all major and intermediate cities through our logistics partners."
+            },
+            {
+                "q": "What is the return policy?",
+                "a": "If you're not satisfied with your purchase, you have up to 30 days to request an exchange or refund, as long as the product is sealed."
+            }
+        ],
+        "form_title": "Write to Us",
+        "form_name": "Full Name",
+        "form_email": "Email",
+        "form_message": "Message",
+        "form_name_ph": "E.g. John Smith",
+        "form_email_ph": "john@example.com",
+        "form_message_ph": "How can we help you?",
+        "form_submit": "SEND MESSAGE",
+        "form_success_title": "Message Received!",
+        "form_success_desc": "We'll contact you within 24 business hours.",
+        "form_another": "SEND ANOTHER"
     }
 }
