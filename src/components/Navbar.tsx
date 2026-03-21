@@ -36,7 +36,7 @@ export default function Navbar() {
             <img
               src="/logo-advanced-health-COLOR_HORIZONTAL.png"
               alt="Advanced Health"
-              style={{ height: '32px', width: 'auto' }}
+              style={{ height: '56px', width: 'auto' }}
             />
           </Link>
 

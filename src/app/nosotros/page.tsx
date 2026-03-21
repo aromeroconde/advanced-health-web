@@ -42,7 +42,7 @@ export default function NosotrosPage() {
                             marginBottom: '1.5rem',
                         }}
                     >
-                        Nuestra Misión
+                        Nuestra <span style={{ color: 'var(--primary)' }}>Misión</span>
                     </span>
                     <h1
                         style={{
@@ -107,7 +107,7 @@ export default function NosotrosPage() {
                                 marginBottom: '2rem',
                             }}
                         >
-                            Nuestra Historia
+                            Nuestra <span style={{ color: 'var(--primary)' }}>Historia</span>
                         </h2>
                         <div
                             style={{
@@ -137,7 +137,7 @@ export default function NosotrosPage() {
             <section style={{ padding: '8rem 2rem', background: 'var(--surface-container-lowest)' }}>
                 <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
                     <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Nuestros Valores</h2>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Nuestros <span style={{ color: 'var(--primary)' }}>Valores</span></h2>
                         <div
                             style={{
                                 width: '4rem',

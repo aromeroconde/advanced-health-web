@@ -111,7 +111,7 @@ export default function ProductosPage() {
               color: 'var(--on-surface)',
             }}
           >
-            Encuentra tu Bienestar
+            Encuentra tu <span style={{ color: 'var(--accent)' }}>Bienestar</span>
           </h1>
           <p
             style={{

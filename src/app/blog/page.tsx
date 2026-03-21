@@ -98,7 +98,7 @@ export default function BlogPage() {
             color: 'var(--on-surface)',
           }}
         >
-          El Blog de AH
+          El Blog de <span style={{ color: 'var(--accent)' }}>Advanced Health Company</span>
         </h1>
       </div>
 

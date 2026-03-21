@@ -60,7 +60,7 @@ export default function Footer() {
           <img
             src="/logo-advanced-health-NEGRO_HORIZONTAL.png"
             alt="Advanced Health"
-            style={{ height: '28px', width: 'auto', marginBottom: '1.5rem' }}
+            style={{ height: '50px', width: 'auto', marginBottom: '1.5rem' }}
           />
           <p
             style={{

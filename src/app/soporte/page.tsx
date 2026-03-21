@@ -91,7 +91,7 @@ export default function SoportePage() {
                 >
                     {/* FAQ COLUMN */}
                     <div>
-                        <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>Preguntas Frecuentes</h2>
+                        <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>Preguntas <span style={{ color: 'var(--primary)' }}>Frecuentes</span></h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                             {faqs.map((item, idx) => (
                                 <details

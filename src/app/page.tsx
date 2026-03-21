@@ -257,7 +257,7 @@ export default function HomePage() {
               marginBottom: '0.5rem',
             }}
           >
-            Categorías Destacadas
+            Categorías <span style={{ color: 'var(--primary)' }}>Destacadas</span>
           </h2>
           <div
             style={{
@@ -356,7 +356,7 @@ export default function HomePage() {
                   color: 'var(--on-surface)',
                 }}
               >
-                Nuestros Best Sellers
+                Nuestros <span style={{ color: 'var(--primary)' }}>Best Sellers</span>
               </h2>
               <p
                 style={{
@@ -555,7 +555,8 @@ export default function HomePage() {
                   letterSpacing: '-0.03em',
                 }}
               >
-                <span style={{ color: 'var(--outline-variant)' }}>100%</span> Certificado Clínicamente
+                <span style={{ color: 'var(--outline-variant)' }}>+</span><AnimatedCounter end={2000} duration={2500} /><br />
+                Tratamientos Fabricados
               </p>
             </div>
           </div>

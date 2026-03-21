@@ -8,7 +8,8 @@
 
 :root {
   /* ─── Core Brand Palette (Brand Alignment) ─── */
-  --primary: #283277;
+  --primary: #5448C8;
+  /* Magenta / Púrpura oficial */
   --primary-container: #12abe3;
   --primary-fixed: #c3e8ff;
   --primary-fixed-dim: #79d1ff;
@@ -18,7 +19,8 @@
   --on-primary-fixed-variant: #004c68;
   --inverse-primary: #79d1ff;
 
-  --secondary: #3a5ca4;
+  --secondary: #1D2A5B;
+  /* Azul Oscuro oficial */
   --secondary-container: #8faffd;
   --secondary-fixed: #d9e2ff;
   --secondary-fixed-dim: #b0c6ff;
@@ -26,6 +28,9 @@
   --on-secondary-container: #1a4087;
   --on-secondary-fixed: #001945;
   --on-secondary-fixed-variant: #1e448b;
+
+  --accent: #00ABC8;
+  /* Cian / Teal oficial para acentos secundarios */
 
   --tertiary: #5b5f62;
   --tertiary-container: #9ca0a3;
