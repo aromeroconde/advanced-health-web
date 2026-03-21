@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AnimatedCounter from '@/components/AnimatedCounter';
 import NewsletterForm from '@/components/NewsletterForm';
 
 // ─── Data ──────────────────────────────────────────
