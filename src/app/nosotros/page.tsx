@@ -56,7 +56,7 @@ export default function NosotrosPage() {
                         }}
                     >
                         Redefiniendo el <br />
-                        <span style={{ color: 'var(--primary)' }}>Estándar de Vitalidad.</span>
+                        <span style={{ color: 'var(--outline-variant)' }}>Estándar</span> de <span style={{ color: 'var(--primary)' }}>Vitalidad.</span>
                     </h1>
                     <p
                         style={{

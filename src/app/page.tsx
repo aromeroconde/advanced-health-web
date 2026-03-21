@@ -555,7 +555,7 @@ export default function HomePage() {
                   letterSpacing: '-0.03em',
                 }}
               >
-                100% Certificado Clínicamente
+                <span style={{ color: 'var(--outline-variant)' }}>100%</span> Certificado Clínicamente
               </p>
             </div>
           </div>
@@ -587,7 +587,7 @@ export default function HomePage() {
                 lineHeight: 1.1,
               }}
             >
-              Por qué elegir Advanced Health
+              Por qué elegir <span style={{ color: 'var(--primary)' }}>Advanced Health</span>
             </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>

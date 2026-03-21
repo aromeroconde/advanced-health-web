@@ -31,16 +31,13 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
           <Link
             href="/"
-            style={{
-              fontSize: '1.5rem',
-              fontFamily: 'var(--font-headline)',
-              fontWeight: 700,
-              letterSpacing: '-0.04em',
-              color: 'var(--primary)',
-              textDecoration: 'none',
-            }}
+            style={{ display: 'flex', alignItems: 'center' }}
           >
-            Advanced Health
+            <img
+              src="/logo-advanced-health-COLOR_HORIZONTAL.png"
+              alt="Advanced Health"
+              style={{ height: '32px', width: 'auto' }}
+            />
           </Link>
 
           {/* Desktop nav */}

@@ -57,17 +57,11 @@ export default function Footer() {
       >
         {/* Brand Column */}
         <div className="footer-brand">
-          <h3
-            style={{
-              fontSize: '1.25rem',
-              fontFamily: 'var(--font-headline)',
-              fontWeight: 700,
-              color: '#0c4a6e',
-              marginBottom: '1.5rem',
-            }}
-          >
-            Advanced Health
-          </h3>
+          <img
+            src="/logo-advanced-health-NEGRO_HORIZONTAL.png"
+            alt="Advanced Health"
+            style={{ height: '28px', width: 'auto', marginBottom: '1.5rem' }}
+          />
           <p
             style={{
               fontSize: '0.875rem',
@@ -86,7 +80,7 @@ export default function Footer() {
                 href={s.href}
                 aria-label={s.label}
                 style={{
-                  color: '#0c4a6e',
+                  color: 'var(--primary)',
                   transition: 'color var(--transition-fast)',
                   display: 'flex',
                 }}
@@ -109,7 +103,7 @@ export default function Footer() {
                 fontSize: '0.6875rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: '#0c4a6e',
+                color: 'var(--primary)',
                 marginBottom: '2rem',
               }}
             >
