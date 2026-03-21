@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation';
 const navLinks = [
   { href: '/productos', label: 'Tienda' },
   { href: '/blog', label: 'Ciencia' },
-  { href: '/#nosotros', label: 'Acerca de' },
-  { href: '/#soporte', label: 'Soporte' },
+  { href: '/nosotros', label: 'Acerca de' },
+  { href: '/soporte', label: 'Soporte' },
 ];
 
 export default function Navbar() {
