@@ -12,7 +12,7 @@
             "badge": "INNOVACIÓN CLÍNICA",
             "title_1": "Nutrición Avanzada",
             "title_2": "Resultados Medibles.",
-            "desc": "Fórmulas de grado editorial y eficacia clínica. Descubre suplementos diseñados para el rendimiento humano y la longevidad celular.",
+            "desc": "Fórmulas de grado editorial respaldadas por la ciencia. Descubre suplementos diseñados para el rendimiento humano y la vitalidad celular.",
             "cta_primary": "Explorar Fórmulas",
             "cta_secondary": "Conocer la Ciencia"
         },
@@ -28,8 +28,8 @@
         "why_highlight": "Advanced Health",
         "why_items": [
             {
-                "title": "Calidad Clínica",
-                "desc": "Fórmulas desarrolladas por científicos líderes con ingredientes de grado farmacéutico para máxima biodisponibilidad."
+                "title": "Calidad Superior",
+                "desc": "Fórmulas desarrolladas por científicos líderes con ingredientes de la más alta pureza para máxima biodisponibilidad."
             },
             {
                 "title": "Ingredientes Puros",
@@ -41,16 +41,56 @@
             }
         ],
         "cta_title": "Únete a la Revolución del Bienestar",
-        "cta_desc": "Suscríbete para recibir consejos clínicos de salud y un 15% de descuento en tu primer pedido.",
-        "treatments_label": "Tratamientos Fabricados"
+        "cta_desc": "¡Empieza a chatear ya con nosotros! Recibe consejos clínicos y un 15% de descuento en tu primer pedido.*",
+        "cta_disclaimer": "*Aplica para productos seleccionados de la línea gudd.",
+        "cta_button": "HABLAR POR WHATSAPP",
+        "treatments_label": "Unidades Producidas",
+        "categories_list": [
+            {
+                "label": "Colágeno",
+                "text": "Explorar Colección"
+            },
+            {
+                "label": "Vitaminas",
+                "text": "Ver todo"
+            },
+            {
+                "label": "Energía",
+                "text": "Rendimiento"
+            },
+            {
+                "label": "Bienestar Integral",
+                "text": "Ciencia AH"
+            }
+        ],
+        "best_sellers_products": [
+            {
+                "name": "Péptidos de Colágeno",
+                "desc": "Piel, Cabello, Uñas y Articulaciones",
+                "badge": "NUEVO"
+            },
+            {
+                "name": "Complejo B Avanzado",
+                "desc": "Soporte Energético Avanzado",
+                "badge": "POPULAR"
+            },
+            {
+                "name": "Probiótico 50B",
+                "desc": "Salud Digestiva e Inmune"
+            },
+            {
+                "name": "Noche Profunda",
+                "desc": "Magnesio y Adaptógenos"
+            }
+        ]
     },
     "productos": {
         "badge": "Catálogo Editorial",
         "title": "Encuentra tu",
         "title_highlight": "Bienestar",
-        "desc": "Descubre nuestra selección curada de suplementos y soluciones clínicas diseñadas para optimizar cada aspecto de tu salud celular.",
+        "desc": "Descubre nuestra selección curada de suplementos y soluciones nutricionales diseñadas para apoyar cada aspecto de tu salud celular.",
         "clinical_label": "Respaldo",
-        "clinical_value": "100% Clínico",
+        "clinical_value": "100% Científico",
         "filter_need": "Necesidad",
         "filter_category": "Categoría",
         "needs": [
@@ -66,41 +106,31 @@
             "Kits de Salud"
         ],
         "advisory_label": "Asesoría",
-        "advisory_text": "¿No sabes qué elegir? Habla con un especialista clínico.",
+        "advisory_text": "¿No sabes qué elegir? Habla con un especialista en nutrición.",
         "advisory_btn": "Contactar",
         "reviews_suffix": "reseñas",
         "load_more": "Cargar más productos",
         "add_to_cart": "Añadir al carrito",
-        "badges": {
-            "best_seller": "Más Vendido",
-            "new": "Nuevo"
+        "brand_fuxion": "FuXion",
+        "brand_gudd": "Gudd",
+        "modal": {
+            "buy": "Comprar",
+            "add_to_cart": "Agregar al carrito",
+            "benefits": "Beneficios",
+            "how_to_use": "Modo de uso",
+            "presentation": "Presentación",
+            "flavor": "Sabor",
+            "soon": "Próximamente",
+            "close": "Cerrar"
         },
-        "products": [
-            {
-                "name": "Complex Vitality O3",
-                "desc": "Fórmula avanzada con Omega-3 purificado y antioxidantes para la regeneración celular."
-            },
-            {
-                "name": "Dermal Restore Serum",
-                "desc": "Sérum de grado clínico con ácido hialurónico de tres pesos moleculares."
-            },
-            {
-                "name": "Immune Defense Pack",
-                "desc": "Combinación estratégica de Vitamina D3, K2 y Zinc Quelado."
-            },
-            {
-                "name": "Bone Strength Complex",
-                "desc": "Calcio orgánico con magnesio marino para máxima absorción ósea."
-            },
-            {
-                "name": "Neuro Focus Elite",
-                "desc": "Nootrópico de amplio espectro para claridad mental y reducción de cortisol."
-            },
-            {
-                "name": "Cellular Energy B‑12",
-                "desc": "Metilcobalamina sublingual de alta potencia para energía sostenida."
-            }
-        ]
+        "cart": {
+            "title": "Tu carrito",
+            "empty": "Tu carrito está vacío",
+            "total": "Total",
+            "clear": "Vaciar carrito",
+            "checkout": "Finalizar compra por WhatsApp",
+            "remove": "Eliminar"
+        }
     },
     "blog": {
         "badge": "Ciencia & Bienestar",
@@ -110,6 +140,8 @@
         "read_more": "Leer más",
         "read": "Leer",
         "reading_suffix": "lectura",
+        "share_article": "Compartir este artículo",
+        "back_to_blog": "Volver al Blog",
         "tags": [
             "Todos",
             "Ciencia",
@@ -121,8 +153,8 @@
         "articles": [
             {
                 "category": "Ciencia",
-                "title": "El Colágeno en la Regeneración Celular: Más Allá de la Piel",
-                "excerpt": "Nueva evidencia clínica respalda el uso de péptidos de colágeno tipo I y III para la restauración del tejido conectivo. Un análisis profundo de los mecanismos biológicos."
+                "title": "El Colágeno en el Soporte Celular: Más Allá de la Piel",
+                "excerpt": "Nueva evidencia científica respalda el uso de péptidos de colágeno tipo I y III para el mantenimiento del tejido conectivo. Un análisis profundo de los mecanismos biológicos."
             },
             {
                 "category": "Rendimiento",
@@ -131,7 +163,7 @@
             },
             {
                 "category": "Inmunidad",
-                "title": "Vitamina D3 + K2: El Protocolo de Invierno Definitivo",
+                "title": "Vitamina D3 + K2: Tu Aliado de Invierno",
                 "excerpt": "Por qué suplementar con D3 sola es insuficiente y cómo la K2 complementa su función en el metabolismo óseo y cardiovascular."
             },
             {
@@ -142,7 +174,7 @@
             {
                 "category": "Nutrición",
                 "title": "Microbioma Intestinal: La Nueva Frontera del Bienestar Sistémico",
-                "excerpt": "Reprogramar la flora intestinal con probióticos clínicos de tercera generación. Implicaciones para la salud inmune, mental y metabólica."
+                "excerpt": "Reprogramar la flora intestinal con probióticos de tercera generación. Implicaciones para la salud inmune, mental y metabólica."
             }
         ]
     },
@@ -164,7 +196,7 @@
         "values": [
             {
                 "title": "Ciencia Aplicada",
-                "desc": "No creemos en tendencias, creemos en datos. Cada fórmula es el resultado de años de investigación clínica."
+                "desc": "No creemos en tendencias, creemos en datos. Cada fórmula es el resultado de años de investigación científica."
             },
             {
                 "title": "Pureza Absoluta",
@@ -212,5 +244,41 @@
         "form_success_title": "¡Mensaje Recibido!",
         "form_success_desc": "Te contactaremos en menos de 24 horas hábiles.",
         "form_another": "ENVIAR OTRO"
+    },
+    "footer": {
+        "brand_desc": "Líderes mundiales en nutrición clínica y soluciones de bienestar de alto impacto.",
+        "col_collections": "Colecciones",
+        "col_company": "Compañía",
+        "col_info": "Información",
+        "col_explore": "Explorar",
+        "col_legal": "Legal",
+        "collections": {
+            "collagen": "Todo el Colágeno",
+            "vitamins": "Vitaminas y Minerales",
+            "energy": "Rendimiento Físico",
+            "mental": "Salud Mental"
+        },
+        "company": {
+            "history": "Nuestra Historia",
+            "science": "Ciencia y Calidad",
+            "careers": "Carreras",
+            "contact": "Contacto"
+        },
+        "info": {
+            "privacy": "Privacidad",
+            "terms": "Términos",
+            "shipping": "Envíos y Devoluciones",
+            "faq": "Preguntas Frecuentes"
+        },
+        "legal": {
+            "terms": "Términos de Servicio",
+            "privacy": "Política de Privacidad",
+            "retract": "Derecho de Retracto"
+        },
+        "sic": "Para obtener información de la Superintendencia de Industria y Comercio da {link_info}. Si deseas colocar una queja da {link_complaint}",
+        "sic_click": "click aquí",
+        "disclaimer": "Este producto no tiene como fin diagnosticar, tratar, curar o prevenir ninguna enfermedad. Los resultados pueden variar. Siempre consulte con su médico antes de comenzar cualquier suplemento nutricional.",
+        "contact_phone": "(+57) 601 917 8558",
+        "copyright": "© 2024 Advanced Health. Clinical Excellence & Editorial Vitality."
     }
 }

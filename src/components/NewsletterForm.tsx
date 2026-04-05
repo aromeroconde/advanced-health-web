@@ -1,38 +1,41 @@
 'use client';
 
-export default function NewsletterForm() {
+interface NewsletterFormProps {
+  buttonText: string;
+}
+
+export default function NewsletterForm({ buttonText }: NewsletterFormProps) {
+  const whatsappUrl = `https://wa.me/576019178558?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20el%2015%25%20de%20descuento%20y%20consejos%20cl%C3%ADnicos`;
+
   return (
-    <form
+    <div
       style={{
         display: 'flex',
-        gap: '1rem',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1.5rem',
         maxWidth: '40rem',
         margin: '0 auto',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
       }}
-      onSubmit={(e) => e.preventDefault()}
     >
-      <input
-        type="email"
-        placeholder="Tu correo electrónico"
-        required
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn btn-solid-white"
         style={{
-          flexGrow: 1,
-          background: 'rgba(255,255,255,0.12)',
-          border: '1px solid rgba(255,255,255,0.25)',
-          color: '#ffffff',
-          padding: '1rem 1.5rem',
-          borderRadius: 'var(--radius-lg)',
-          fontFamily: 'var(--font-body)',
+          padding: '1.25rem 3rem',
           fontSize: '1rem',
-          outline: 'none',
-          minWidth: '200px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.75rem',
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+          textDecoration: 'none',
         }}
-      />
-      <button type="submit" className="btn btn-solid-white">
-        SUSCRIBIRME
-      </button>
-    </form>
+      >
+        <span className="material-symbols-outlined">chat</span>
+        {buttonText}
+      </a>
+    </div>
   );
 }

@@ -1,0 +1,49 @@
+# Advanced Health Company SAS
+
+> E-commerce de suplementos clínicos premium con sede en Colombia. Nutrición avanzada diseñada para el rendimiento humano. Ciencia pura, resultados probados.
+
+## Empresa
+
+- Nombre legal: Advanced Health Company SAS
+- Sitio web: https://www.advancedhealth.com.co
+- Email: contacto@advancedhealth.com.co
+- Teléfono/WhatsApp: (+57) 601 917 8558
+- País: Colombia
+- Registro sanitario: INVIMA vigente para todos los productos
+- Idiomas: Español (es), English (en)
+
+## Categorías de Productos
+
+- Colágeno: Péptidos de colágeno tipo I y III para tejido conectivo
+- Vitaminas: Complejos vitamínicos y minerales quelados
+- Energía: Suplementos para rendimiento físico y celular
+- Bienestar Integral: Fórmulas para salud mental, digestiva e inmune
+
+## Productos Destacados
+
+1. Complex Vitality O3 — Omega-3 purificado con antioxidantes
+2. Dermal Restore Serum — Ácido hialurónico de tres pesos moleculares
+3. Immune Defense Pack — Vitamina D3, K2 y Zinc Quelado
+4. Bone Strength Complex — Calcio orgánico con magnesio marino
+5. Neuro Focus Elite — Nootrópico para claridad mental
+6. Cellular Energy B-12 — Metilcobalamina sublingual
+
+## Blog (Artículos Científicos)
+
+- El Colágeno en el Soporte Celular: Más Allá de la Piel
+- Magnesio y el Sueño Profundo: La Conexión Molecular
+- Vitamina D3 + K2: Tu Aliado de Invierno
+- Adaptógenos y el Eje Hipotálamo-Hipófiso-Suprarrenal
+- Microbioma Intestinal: La Nueva Frontera del Bienestar Sistémico
+
+## Páginas Principales
+
+- /es — Página principal (español)
+- /en — Homepage (English)
+- /es/productos — Catálogo de productos
+- /es/blog — Blog de ciencia y bienestar
+- /es/nosotros — Sobre Advanced Health
+- /es/soporte — Soporte y preguntas frecuentes
+- /es/terminos — Términos y condiciones
+- /es/politicas-de-privacidad — Política de privacidad
+- /es/derecho-de-retracto — Derecho de retracto

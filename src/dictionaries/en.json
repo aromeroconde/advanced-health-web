@@ -12,7 +12,7 @@
             "badge": "CLINICAL INNOVATION",
             "title_1": "Advanced Nutrition",
             "title_2": "Measurable Results.",
-            "desc": "Editorial-grade formulas and clinical efficacy. Discover supplements designed for human performance and cellular longevity.",
+            "desc": "Editorial-grade formulas backed by science. Discover supplements designed for human performance and cellular vitality.",
             "cta_primary": "Explore Formulas",
             "cta_secondary": "Learn the Science"
         },
@@ -28,8 +28,8 @@
         "why_highlight": "Advanced Health",
         "why_items": [
             {
-                "title": "Clinical Quality",
-                "desc": "Formulas developed by leading scientists with pharmaceutical-grade ingredients for maximum bioavailability."
+                "title": "Premium Quality",
+                "desc": "Formulas developed by leading scientists with the highest purity ingredients for maximum bioavailability."
             },
             {
                 "title": "Pure Ingredients",
@@ -41,16 +41,56 @@
             }
         ],
         "cta_title": "Join the Wellness Revolution",
-        "cta_desc": "Subscribe to receive clinical health tips and a 15% discount on your first order.",
-        "treatments_label": "Treatments Manufactured"
+        "cta_desc": "Start chatting with us now! Receive clinical advice and 15% off your first order.*",
+        "cta_disclaimer": "*Applies to selected products from the gudd line.",
+        "cta_button": "CHAT ON WHATSAPP",
+        "treatments_label": "Units Produced",
+        "categories_list": [
+            {
+                "label": "Collagen",
+                "text": "Explore Collection"
+            },
+            {
+                "label": "Vitamins",
+                "text": "See all"
+            },
+            {
+                "label": "Energy",
+                "text": "Performance"
+            },
+            {
+                "label": "Holistic Wellness",
+                "text": "AH Science"
+            }
+        ],
+        "best_sellers_products": [
+            {
+                "name": "Collagen Peptides",
+                "desc": "Skin, Hair, Nails and Joints",
+                "badge": "NEW"
+            },
+            {
+                "name": "Advanced B-Complex",
+                "desc": "Advanced Energy Support",
+                "badge": "POPULAR"
+            },
+            {
+                "name": "Probiotic 50B",
+                "desc": "Digestive and Immune Health"
+            },
+            {
+                "name": "Deep Night",
+                "desc": "Magnesium and Adaptogens"
+            }
+        ]
     },
     "productos": {
         "badge": "Editorial Catalog",
         "title": "Find Your",
         "title_highlight": "Wellness",
-        "desc": "Discover our curated selection of supplements and clinical solutions designed to optimize every aspect of your cellular health.",
+        "desc": "Discover our curated selection of supplements and nutritional solutions designed to support every aspect of your cellular health.",
         "clinical_label": "Backed by",
-        "clinical_value": "100% Clinical",
+        "clinical_value": "100% Scientific",
         "filter_need": "Need",
         "filter_category": "Category",
         "needs": [
@@ -66,41 +106,31 @@
             "Health Kits"
         ],
         "advisory_label": "Advisory",
-        "advisory_text": "Not sure what to choose? Talk to a clinical specialist.",
+        "advisory_text": "Not sure what to choose? Talk to a nutrition specialist.",
         "advisory_btn": "Contact",
         "reviews_suffix": "reviews",
         "load_more": "Load more products",
         "add_to_cart": "Add to cart",
-        "badges": {
-            "best_seller": "Best Seller",
-            "new": "New"
+        "brand_fuxion": "FuXion",
+        "brand_gudd": "Gudd",
+        "modal": {
+            "buy": "Buy",
+            "add_to_cart": "Add to cart",
+            "benefits": "Benefits",
+            "how_to_use": "How to use",
+            "presentation": "Presentation",
+            "flavor": "Flavor",
+            "soon": "Coming soon",
+            "close": "Close"
         },
-        "products": [
-            {
-                "name": "Complex Vitality O3",
-                "desc": "Advanced formula with purified Omega-3 and antioxidants for cellular regeneration."
-            },
-            {
-                "name": "Dermal Restore Serum",
-                "desc": "Clinical-grade serum with three molecular weight hyaluronic acid."
-            },
-            {
-                "name": "Immune Defense Pack",
-                "desc": "Strategic combination of Vitamin D3, K2 and Chelated Zinc."
-            },
-            {
-                "name": "Bone Strength Complex",
-                "desc": "Organic calcium with marine magnesium for maximum bone absorption."
-            },
-            {
-                "name": "Neuro Focus Elite",
-                "desc": "Broad-spectrum nootropic for mental clarity and cortisol reduction."
-            },
-            {
-                "name": "Cellular Energy B‑12",
-                "desc": "High-potency sublingual methylcobalamin for sustained energy."
-            }
-        ]
+        "cart": {
+            "title": "Your cart",
+            "empty": "Your cart is empty",
+            "total": "Total",
+            "clear": "Clear cart",
+            "checkout": "Checkout via WhatsApp",
+            "remove": "Remove"
+        }
     },
     "blog": {
         "badge": "Science & Wellness",
@@ -110,6 +140,8 @@
         "read_more": "Read more",
         "read": "Read",
         "reading_suffix": "read",
+        "share_article": "Share this article",
+        "back_to_blog": "Back to Blog",
         "tags": [
             "All",
             "Science",
@@ -121,8 +153,8 @@
         "articles": [
             {
                 "category": "Science",
-                "title": "Collagen in Cellular Regeneration: Beyond the Skin",
-                "excerpt": "New clinical evidence supports the use of type I and III collagen peptides for connective tissue restoration. A deep analysis of the biological mechanisms."
+                "title": "Collagen in Cellular Support: Beyond the Skin",
+                "excerpt": "New scientific evidence supports the use of type I and III collagen peptides for connective tissue maintenance. A deep analysis of the biological mechanisms."
             },
             {
                 "category": "Performance",
@@ -131,7 +163,7 @@
             },
             {
                 "category": "Immunity",
-                "title": "Vitamin D3 + K2: The Ultimate Winter Protocol",
+                "title": "Vitamin D3 + K2: Your Winter Ally",
                 "excerpt": "Why supplementing with D3 alone is insufficient and how K2 complements its function in bone and cardiovascular metabolism."
             },
             {
@@ -142,7 +174,7 @@
             {
                 "category": "Nutrition",
                 "title": "Gut Microbiome: The New Frontier of Systemic Wellness",
-                "excerpt": "Reprogramming gut flora with third-generation clinical probiotics. Implications for immune, mental and metabolic health."
+                "excerpt": "Reprogramming gut flora with third-generation probiotics. Implications for immune, mental and metabolic health."
             }
         ]
     },
@@ -164,7 +196,7 @@
         "values": [
             {
                 "title": "Applied Science",
-                "desc": "We don't believe in trends, we believe in data. Every formula is the result of years of clinical research."
+                "desc": "We don't believe in trends, we believe in data. Every formula is the result of years of scientific research."
             },
             {
                 "title": "Absolute Purity",
@@ -212,5 +244,41 @@
         "form_success_title": "Message Received!",
         "form_success_desc": "We'll contact you within 24 business hours.",
         "form_another": "SEND ANOTHER"
+    },
+    "footer": {
+        "brand_desc": "World leaders in clinical nutrition and high-impact wellness solutions.",
+        "col_collections": "Collections",
+        "col_company": "Company",
+        "col_info": "Information",
+        "col_explore": "Explore",
+        "col_legal": "Legal",
+        "collections": {
+            "collagen": "All Collagen",
+            "vitamins": "Vitamins & Minerals",
+            "energy": "Physical Performance",
+            "mental": "Mental Health"
+        },
+        "company": {
+            "history": "Our History",
+            "science": "Science & Quality",
+            "careers": "Careers",
+            "contact": "Contact"
+        },
+        "info": {
+            "privacy": "Privacy",
+            "terms": "Terms",
+            "shipping": "Shipping & Returns",
+            "faq": "Frequently Asked Questions"
+        },
+        "legal": {
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy",
+            "retract": "Right of Withdrawal"
+        },
+        "sic": "To obtain information from the Superintendence of Industry and Commerce {link_info}. If you wish to file a complaint {link_complaint}",
+        "sic_click": "click here",
+        "disclaimer": "This product is not intended to diagnose, treat, cure or prevent any disease. Results may vary. Always consult with your physician before starting any nutritional supplement.",
+        "contact_phone": "(+57) 601 917 8558",
+        "copyright": "© 2024 Advanced Health. Clinical Excellence & Editorial Vitality."
     }
 }

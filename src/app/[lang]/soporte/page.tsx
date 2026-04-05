@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import FAQSchema from '@/components/FAQSchema';
 
 export default function SoportePage() {
     const [submitted, setSubmitted] = useState(false);
@@ -23,6 +24,8 @@ export default function SoportePage() {
 
     return (
         <div style={{ background: 'var(--surface)' }}>
+            {/* FAQ Schema for search engines */}
+            <FAQSchema faqs={t.faqs} />
             {/* ═══ HERO SECTION ═══ */}
             <section
                 style={{
@@ -174,11 +177,11 @@ export default function SoportePage() {
                         <div style={{ marginTop: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>mail</span>
-                                <span style={{ fontWeight: 600 }}>soporte@advancedhealth.com.co</span>
+                                <span style={{ fontWeight: 600 }}>contacto@advancedhealth.com.co</span>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>chat</span>
-                                <span style={{ fontWeight: 600 }}>WhatsApp: +57 300 000 0000</span>
+                                <span style={{ fontWeight: 600 }}>WhatsApp & Phone: (+57) 601 917 8558</span>
                             </div>
                         </div>
                     </div>

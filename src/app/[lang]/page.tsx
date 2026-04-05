@@ -1,74 +1,55 @@
 import Link from 'next/link';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import NewsletterForm from '@/components/NewsletterForm';
+import ProductCard from '@/components/ProductCard';
 import { getDictionary } from '@/lib/dictionaries';
+import { getProducts } from '@/lib/products';
+import type { Metadata } from 'next';
 
-// ─── Data ──────────────────────────────────────────
-const bestSellers = [
-  {
-    id: 1,
-    name: 'Péptidos de Colágeno',
-    desc: 'Piel, Cabello, Uñas y Articulaciones',
-    price: '$45.00',
-    badge: 'NUEVO',
-    badgeBg: 'var(--primary-container)',
-    badgeColor: 'var(--on-primary-container)',
-    stars: 5,
-    img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80&fit=crop',
-  },
-  {
-    id: 2,
-    name: 'Complejo B Clínico',
-    desc: 'Soporte Energético Avanzado',
-    price: '$32.00',
-    badge: 'POPULAR',
-    badgeBg: 'var(--secondary)',
-    badgeColor: '#fff',
-    stars: 4,
-    img: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=400&q=80&fit=crop',
-  },
-  {
-    id: 3,
-    name: 'Probiótico 50B',
-    desc: 'Salud Digestiva e Inmune',
-    price: '$38.00',
-    badge: null,
-    stars: 5,
-    img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80&fit=crop',
-  },
-  {
-    id: 4,
-    name: 'Noche Profunda',
-    desc: 'Magnesio y Adaptógenos',
-    price: '$29.00',
-    badge: null,
-    stars: 5,
-    img: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&q=80&fit=crop',
-  },
-];
+const BASE_URL = 'https://www.advancedhealth.com.co';
 
-const whyItems = [
-  {
-    icon: 'science',
-    title: 'Calidad Clínica',
-    desc: 'Fórmulas desarrolladas por científicos líderes con ingredientes de grado farmacéutico para máxima biodisponibilidad.',
-  },
-  {
-    icon: 'eco',
-    title: 'Ingredientes Puros',
-    desc: 'Sin rellenos, sin colorantes artificiales. Solo lo que tu cuerpo necesita, en su forma más natural y efectiva.',
-  },
-  {
-    icon: 'verified',
-    title: 'Transparencia Total',
-    desc: 'Trazabilidad completa de cada lote. Publicamos nuestros análisis de terceros para asegurar tu tranquilidad.',
-  },
-];
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as 'es' | 'en');
+  const isEn = lang === 'en';
+  const title = isEn
+    ? 'Clinical Supplements for Human Performance'
+    : 'Suplementos Clínicos Premium Colombia';
+  const description = isEn
+    ? 'Advanced nutrition designed for human performance. Pure science, proven results. Premium clinical supplements.'
+    : 'Nutrición avanzada diseñada para el rendimiento humano. Ciencia pura, resultados probados. Suplementos clínicos premium con registro INVIMA.';
+
+  return {
+    title: { absolute: `${title} | Advanced Health` },
+    description,
+    alternates: {
+      canonical: `${BASE_URL}/${lang}`,
+      languages: {
+        es: `${BASE_URL}/es`,
+        en: `${BASE_URL}/en`,
+        'x-default': `${BASE_URL}/es`,
+      },
+    },
+    openGraph: {
+      title: `${title} | Advanced Health`,
+      description,
+      url: `${BASE_URL}/${lang}`,
+      locale: isEn ? 'en_US' : 'es_CO',
+      type: 'website',
+      images: [{ url: `${BASE_URL}/logo-advanced-health-COLOR_HORIZONTAL.png`, width: 1200, height: 630, alt: 'Advanced Health Company SAS' }],
+    },
+  };
+}
+
+
 
 // ─── Component ─────────────────────────────────────
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang as 'es' | 'en');
+
+  const { featured } = await getProducts();
+  const bestSellersProducts = featured.slice(0, 4);
 
   return (
     <>
@@ -108,7 +89,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 marginBottom: '1.5rem',
               }}
             >
-              Clinical Excellence
+              {dict.home.hero.badge || 'Clinical Excellence'}
             </span>
 
             <h1
@@ -262,7 +243,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               marginBottom: '0.5rem',
             }}
           >
-            Categorías <span style={{ color: 'var(--primary)' }}>Destacadas</span>
+            {dict.home.categories}{' '}
+            <span style={{ color: 'var(--primary)' }}>{dict.home.categories_highlight}</span>
           </h2>
           <div
             style={{
@@ -287,9 +269,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           {/* Colágeno — wide */}
           <BentoCat
             col="span 8"
-            label="Colágeno"
-            link="/productos?cat=colageno"
-            linkText="Explorar Colección"
+            label={dict.home.categories_list[0].label}
+            link={`/${lang}/productos?cat=colageno`}
+            linkText={dict.home.categories_list[0].text}
             imgUrl="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80&fit=crop"
             gradFrom="var(--primary)"
             labelSize="3rem"
@@ -297,9 +279,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           {/* Vitaminas — narrow */}
           <BentoCat
             col="span 4"
-            label="Vitaminas"
-            link="/productos?cat=vitaminas"
-            linkText="Ver todo"
+            label={dict.home.categories_list[1].label}
+            link={`/${lang}/productos?cat=vitaminas`}
+            linkText={dict.home.categories_list[1].text}
             imgUrl="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=600&q=80&fit=crop"
             gradFrom="var(--secondary)"
             labelSize="1.75rem"
@@ -307,9 +289,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           {/* Energía — narrow */}
           <BentoCat
             col="span 4"
-            label="Energía"
-            link="/productos?cat=energia"
-            linkText="Rendimiento"
+            label={dict.home.categories_list[2].label}
+            link={`/${lang}/productos?cat=energia`}
+            linkText={dict.home.categories_list[2].text}
             imgUrl="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop"
             gradFrom="var(--primary)"
             labelSize="1.75rem"
@@ -317,9 +299,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           {/* Bienestar Clínico — wide */}
           <BentoCat
             col="span 8"
-            label="Bienestar Clínico"
-            link="/productos?cat=bienestar"
-            linkText="Ciencia AH"
+            label={dict.home.categories_list[3].label}
+            link={`/${lang}/productos?cat=bienestar`}
+            linkText={dict.home.categories_list[3].text}
             imgUrl="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=80&fit=crop"
             gradFrom="#171c1f"
             labelSize="2.25rem"
@@ -361,7 +343,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   color: 'var(--on-surface)',
                 }}
               >
-                Nuestros <span style={{ color: 'var(--primary)' }}>Best Sellers</span>
+                {dict.home.best_sellers}{' '}
+                <span style={{ color: 'var(--primary)' }}>{dict.home.best_sellers_highlight}</span>
               </h2>
               <p
                 style={{
@@ -370,7 +353,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   marginTop: '0.5rem',
                 }}
               >
-                Fórmulas galardonadas por expertos.
+                {dict.home.best_sellers_sub}
               </p>
             </div>
             <Link
@@ -385,7 +368,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 textDecoration: 'none',
               }}
             >
-              Ver Todo el Catálogo
+              {dict.home.view_all}
             </Link>
           </div>
 
@@ -398,101 +381,22 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             }}
             className="product-grid"
           >
-            {bestSellers.map((product) => (
-              <div key={product.id} className="product-card">
-                {/* Image */}
-                <div className="product-image">
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform var(--transition-slow)',
-                    }}
-                    className="product-img-hover"
-                  />
-                  {product.badge && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        background: product.badgeBg,
-                        color: product.badgeColor,
-                        fontSize: '0.625rem',
-                        fontWeight: 700,
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '9999px',
-                        letterSpacing: '0.05em',
-                      }}
-                    >
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
-
-                {/* Info */}
-                <div style={{ flexGrow: 1 }}>
-                  {/* Stars */}
-                  <div style={{ display: 'flex', gap: '2px', marginBottom: '0.5rem' }}>
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className="material-symbols-outlined"
-                        style={{
-                          fontSize: '0.875rem',
-                          color: 'var(--secondary-container)',
-                          fontVariationSettings: i < product.stars ? "'FILL' 1" : "'FILL' 0",
-                        }}
-                      >
-                        star
-                      </span>
-                    ))}
-                  </div>
-
-                  <h4
-                    style={{
-                      fontFamily: 'var(--font-headline)',
-                      fontWeight: 700,
-                      fontSize: '1.25rem',
-                      letterSpacing: '-0.02em',
-                      color: 'var(--on-surface)',
-                      marginBottom: '0.25rem',
-                    }}
-                  >
-                    {product.name}
-                  </h4>
-                  <p
-                    style={{
-                      fontSize: '0.875rem',
-                      color: 'var(--on-surface-variant)',
-                      marginBottom: '1.5rem',
-                    }}
-                  >
-                    {product.desc}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-headline)',
-                      fontWeight: 700,
-                      fontSize: '1.5rem',
-                      color: 'var(--primary)',
-                      marginBottom: '1.5rem',
-                    }}
-                  >
-                    {product.price}
-                  </p>
-                </div>
-
-                <button className="add-to-cart">
-                  <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>
-                    shopping_bag
-                  </span>
-                  Añadir al carrito
-                </button>
-              </div>
+            {bestSellersProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                lang={lang}
+                dict={{
+                  add_to_cart: dict.productos.modal.add_to_cart,
+                  buy: dict.productos.modal.buy,
+                  benefits: dict.productos.modal.benefits,
+                  how_to_use: dict.productos.modal.how_to_use,
+                  presentation: dict.productos.modal.presentation,
+                  flavor: dict.productos.modal.flavor,
+                  soon: dict.productos.modal.soon,
+                  close: dict.productos.modal.close,
+                }}
+              />
             ))}
           </div>
 
@@ -500,8 +404,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             .product-grid { grid-template-columns: repeat(4, 1fr); }
             @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
             @media (max-width: 640px) { .product-grid { grid-template-columns: 1fr; } }
-            .product-img-hover { object-fit: cover; }
-            .product-card:hover .product-img-hover { transform: scale(1.08); }
           `}</style>
         </div>
       </section>
@@ -560,8 +462,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   letterSpacing: '-0.03em',
                 }}
               >
-                <span style={{ color: 'var(--outline-variant)' }}>+</span><AnimatedCounter end={2000} duration={2500} /><br />
-                Tratamientos Fabricados
+                <span style={{ color: 'var(--outline-variant)' }}>+</span><AnimatedCounter end={700000} duration={2500} /><br />
+                {dict.home.treatments_label}
               </p>
             </div>
           </div>
@@ -580,7 +482,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 marginBottom: '1.5rem',
               }}
             >
-              Nuestra Diferencia
+              {dict.home.why_label}
             </span>
             <h2
               style={{
@@ -593,12 +495,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 lineHeight: 1.1,
               }}
             >
-              Por qué elegir <span style={{ color: 'var(--primary)' }}>Advanced Health</span>
+              {dict.home.why_title} <span style={{ color: 'var(--primary)' }}>{dict.home.why_highlight}</span>
             </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-              {whyItems.map((item) => (
-                <div key={item.title} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+              {dict.home.why_items.map((item: any, idx: number) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
                   <div
                     style={{
                       background: 'var(--surface-container)',
@@ -611,7 +513,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                       className="material-symbols-outlined"
                       style={{ color: 'var(--primary)', fontSize: '1.875rem' }}
                     >
-                      {item.icon}
+                      {idx === 0 ? 'science' : idx === 1 ? 'eco' : 'verified'}
                     </span>
                   </div>
                   <div>
@@ -690,7 +592,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               marginBottom: '2rem',
             }}
           >
-            Únete a la Revolución del Bienestar
+            {dict.home.cta_title}
           </h2>
           <p
             style={{
@@ -700,10 +602,22 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               marginBottom: '3rem',
             }}
           >
-            Suscríbete para recibir consejos clínicos de salud y un 15% de descuento en tu primer pedido.
+            {dict.home.cta_desc}
           </p>
 
-          <NewsletterForm />
+          <NewsletterForm
+            buttonText={dict.home.cta_button}
+          />
+          {dict.home.cta_disclaimer && (
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              color: 'rgba(255,255,255,0.6)',
+              fontSize: '0.75rem',
+              marginTop: '1.5rem',
+            }}>
+              {dict.home.cta_disclaimer}
+            </p>
+          )}
         </div>
       </section>
     </>

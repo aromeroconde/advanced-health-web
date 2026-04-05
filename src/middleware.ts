@@ -8,11 +8,15 @@ export function middleware(request: NextRequest) {
     // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl;
 
-    // Exclude static files, API routes, and Next.js internals
+    // Exclude static files, API routes, SEO files, and Next.js internals
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
-        pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp)$/)
+        pathname === '/robots.txt' ||
+        pathname === '/sitemap.xml' ||
+        pathname === '/llms.txt' ||
+        pathname === '/favicon.ico' ||
+        pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|txt|xml|json|pdf)$/)
     ) {
         return;
     }

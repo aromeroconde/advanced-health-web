@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="16" fill="#f0f4f8"/>
+  <rect x="140" y="120" width="120" height="160" rx="12" fill="#d1dbe6"/>
+  <rect x="160" y="140" width="80" height="80" rx="8" fill="#b0c4de"/>
+  <circle cx="200" cy="260" r="16" fill="#8fa4bd"/>
+  <text x="200" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#6b7c93">Advanced Health</text>
+</svg>

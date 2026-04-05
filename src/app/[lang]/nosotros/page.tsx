@@ -1,5 +1,38 @@
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionaries';
+import type { Metadata } from 'next';
+
+const BASE_URL = 'https://www.advancedhealth.com.co';
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const isEn = lang === 'en';
+    const title = isEn ? 'About Us' : 'Nosotros';
+    const description = isEn
+        ? 'Advanced Health Company SAS: Clinical nutrition leaders in Colombia. Science-backed supplements with INVIMA registration.'
+        : 'Advanced Health Company SAS: Líderes en nutrición clínica en Colombia. Suplementos respaldados por ciencia con registro INVIMA vigente.';
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `${BASE_URL}/${lang}/nosotros`,
+            languages: {
+                es: `${BASE_URL}/es/nosotros`,
+                en: `${BASE_URL}/en/nosotros`,
+                'x-default': `${BASE_URL}/es/nosotros`,
+            },
+        },
+        openGraph: {
+            title,
+            description,
+            url: `${BASE_URL}/${lang}/nosotros`,
+            locale: isEn ? 'en_US' : 'es_CO',
+            type: 'website',
+            images: [{ url: `${BASE_URL}/logo-advanced-health-COLOR_HORIZONTAL.png`, width: 1200, height: 630, alt: 'Advanced Health Company SAS' }],
+        },
+    };
+}
 
 const valueIcons = ['biotech', 'humidity_high', 'psychology'];
 

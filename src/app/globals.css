@@ -260,51 +260,6 @@ h6 {
   background: var(--surface-container-low);
 }
 
-/* ─────────────────────────────────────────────── */
-/*  Product Card                                   */
-/* ─────────────────────────────────────────────── */
-.product-card {
-  background: var(--surface-container-lowest);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: all var(--transition-base);
-}
-
-.product-card:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.product-card .product-image {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
-
-.product-card .add-to-cart {
-  width: 100%;
-  background: var(--surface-container-high);
-  color: var(--on-surface);
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 1rem;
-  border: none;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-base);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.product-card .add-to-cart:hover {
-  background: var(--primary);
-  color: var(--on-primary);
-}
 
 /* ─────────────────────────────────────────────── */
 /*  Material Symbols                               */

@@ -1,10 +1,12 @@
 import 'server-only';
 
-const dictionaries = {
-    en: () => import('../dictionaries/en.json').then((module) => module.default),
-    es: () => import('../dictionaries/es.json').then((module) => module.default),
+const dictionaries: any = {
+    en: () => import('../dictionaries/en.json'),
+    es: () => import('../dictionaries/es.json'),
 };
 
 export const getDictionary = async (locale: 'en' | 'es') => {
-    return dictionaries[locale]?.() ?? dictionaries.es();
+    const load = dictionaries[locale] || dictionaries.es;
+    const module = await load();
+    return module.default;
 };

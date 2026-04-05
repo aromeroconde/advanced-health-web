@@ -3,10 +3,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useCart } from '@/context/CartContext';
+import CartDrawer from '@/components/CartDrawer';
 
 export default function Navbar({ lang, dict }: { lang: string, dict: Record<string, string> }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const pathname = usePathname();
+  const { itemCount } = useCart();
 
   // Eliminar el locale del pathname para chequear rutas activas
   const pathWithoutLang = pathname.replace(`/${lang}`, '') || '/';
@@ -17,6 +21,15 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
     { href: `/${lang}/nosotros`, match: '/nosotros', label: dict.acerca_de },
     { href: `/${lang}/soporte`, match: '/soporte', label: dict.soporte },
   ];
+
+  const cartDict = {
+    title: dict.cart_title || 'Tu carrito',
+    empty: dict.cart_empty || 'Tu carrito está vacío',
+    total: dict.cart_total || 'Total',
+    clear: dict.cart_clear || 'Vaciar carrito',
+    checkout: dict.cart_checkout || 'Finalizar compra por WhatsApp',
+    remove: dict.cart_remove || 'Eliminar',
+  };
 
   return (
     <header className="navbar-glass">
@@ -117,6 +130,7 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
 
           {/* Cart */}
           <button
+            onClick={() => setCartOpen(true)}
             aria-label="Ver carrito"
             style={{
               background: 'none',
@@ -124,11 +138,32 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
+              position: 'relative',
             }}
           >
             <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '1.5rem' }}>
               shopping_cart
             </span>
+            {itemCount > 0 && (
+              <span style={{
+                position: 'absolute',
+                top: '-4px',
+                right: '-8px',
+                background: '#F97316',
+                color: '#fff',
+                fontSize: '0.625rem',
+                fontWeight: 700,
+                width: '1.125rem',
+                height: '1.125rem',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                lineHeight: 1,
+              }}>
+                {itemCount > 99 ? '99+' : itemCount}
+              </span>
+            )}
           </button>
 
           {/* Mobile hamburger */}
@@ -181,6 +216,15 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
             ))}
           </div>
         </div>
+      )}
+
+      {/* Cart Drawer */}
+      {cartOpen && (
+        <CartDrawer
+          lang={lang}
+          dict={cartDict}
+          onClose={() => setCartOpen(false)}
+        />
       )}
 
       <style>{`
