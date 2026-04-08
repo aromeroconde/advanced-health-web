@@ -13,12 +13,30 @@ interface CartDrawerProps {
     clear: string;
     checkout: string;
     remove: string;
+    subtotal: string;
+    shipping: string;
+    discount: string;
+    shipping_progress: string;
+    shipping_congrats: string;
   };
   onClose: () => void;
 }
 
 export default function CartDrawer({ lang, dict, onClose }: CartDrawerProps) {
-  const { items, itemCount, totalFormatted, removeFromCart, updateQuantity, clearCart } = useCart();
+  const {
+    items,
+    itemCount,
+    subtotal,
+    subtotalFormatted,
+    shippingFormatted,
+    discountFormatted,
+    totalFormatted,
+    isFreeShipping,
+    freeShippingThreshold,
+    removeFromCart,
+    updateQuantity,
+    clearCart
+  } = useCart();
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const handleKeyDown = useCallback(
@@ -262,37 +280,132 @@ export default function CartDrawer({ lang, dict, onClose }: CartDrawerProps) {
           <div style={{
             padding: '1.25rem 1.5rem',
             borderTop: '1px solid var(--outline-variant, #e0e0e0)',
+            background: 'var(--surface-container-lowest, #fff)',
           }}>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: '1rem',
-            }}>
-              <span style={{
-                fontSize: '0.9375rem',
-                fontWeight: 600,
-                color: 'var(--on-surface-variant, #666)',
-                fontFamily: 'var(--font-body, sans-serif)',
+            {/* Free Shipping Progress */}
+            {!isFreeShipping && (
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: 'var(--on-surface-variant, #666)',
+                  marginBottom: '0.5rem'
+                }}>
+                  <span>
+                    {dict.shipping_progress.replace('{amount}', '$' + new Intl.NumberFormat('es-CO').format(freeShippingThreshold - subtotal))}
+                  </span>
+                </div>
+                <div style={{
+                  height: '6px',
+                  background: 'var(--surface-container-high, #eee)',
+                  borderRadius: '9999px',
+                  overflow: 'hidden'
+                }}>
+                  <div style={{
+                    height: '100%',
+                    width: `${Math.min(100, (subtotal / freeShippingThreshold) * 100)}%`,
+                    background: 'var(--primary, #059669)',
+                    borderRadius: '9999px',
+                    transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }} />
+                </div>
+              </div>
+            )}
+
+            {isFreeShipping && (
+              <div style={{
+                background: 'rgba(5, 150, 105, 0.08)',
+                padding: '0.75rem',
+                borderRadius: 'var(--radius-lg, 12px)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '1.5rem',
+                border: '1px solid rgba(5, 150, 105, 0.15)'
               }}>
-                {dict.total}
-              </span>
-              <span style={{
-                fontFamily: 'var(--font-headline, sans-serif)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: '#059669',
-              }}>
-                {totalFormatted}
-              </span>
+                <span className="material-symbols-outlined" style={{ color: '#059669', fontSize: '1.25rem' }}>
+                  local_shipping
+                </span>
+                <span style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#059669',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  {dict.shipping_congrats}
+                </span>
+              </div>
+            )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem' }}>
+              {/* Subtotal */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.8125rem', color: 'var(--on-surface-variant, #666)' }}>{dict.subtotal}</span>
+                <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>{subtotalFormatted}</span>
+              </div>
+
+              {/* Shipping */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.8125rem', color: 'var(--on-surface-variant, #666)' }}>{dict.shipping}</span>
+                <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>{shippingFormatted}</span>
+              </div>
+
+              {/* Discount */}
+              {isFreeShipping && (
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  animation: 'fadeIn 0.3s ease-out'
+                }}>
+                  <span style={{ fontSize: '0.8125rem', color: '#059669', fontWeight: 600 }}>{dict.discount}</span>
+                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#059669' }}>-{discountFormatted}</span>
+                </div>
+              )}
+
+              {/* Total Divider */}
+              <div style={{ height: '1px', background: 'var(--outline-variant, #e0e0e0)', margin: '0.25rem 0' }} />
+
+              {/* Final Total */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.25rem' }}>
+                <span style={{
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: 'var(--on-surface, #1a1a1a)',
+                  fontFamily: 'var(--font-headline, sans-serif)',
+                }}>
+                  {dict.total}
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-headline, sans-serif)',
+                  fontSize: '1.25rem',
+                  fontWeight: 800,
+                  color: 'var(--primary, #059669)',
+                }}>
+                  {totalFormatted}
+                </span>
+              </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <button
                 onClick={() => {
-                  const msg = lang === 'en'
-                    ? 'Hello! I would like to place an order.'
-                    : '¡Hola! Me gustaría hacer un pedido.';
+                  const header = lang === 'en'
+                    ? "Hello! I'd like to place an order with the following products:\n\n"
+                    : "¡Hola! Me gustaría hacer un pedido con los siguientes productos:\n\n";
+
+                  const productList = items.map(item => {
+                    return `- ${item.product.name} x${item.quantity} (${item.product.priceFormatted})`;
+                  }).join('\n');
+
+                  const summary = lang === 'en'
+                    ? `\n\nSubtotal: ${subtotalFormatted}\nShipping: ${shippingFormatted}${isFreeShipping ? `\nDiscount: -${discountFormatted}` : ''}\nTotal: ${totalFormatted}`
+                    : `\n\nSubtotal: ${subtotalFormatted}\nEnvío: ${shippingFormatted}${isFreeShipping ? `\nDescuento: -${discountFormatted}` : ''}\nTotal: ${totalFormatted}`;
+
+                  const msg = `${header}${productList}${summary}`;
                   window.open(`https://wa.me/576019178558?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
                 }}
                 style={{
@@ -344,6 +457,10 @@ export default function CartDrawer({ lang, dict, onClose }: CartDrawerProps) {
         @keyframes cartFadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(5px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         @keyframes cartSlideIn {
           from { transform: translateX(100%); }

@@ -6,6 +6,7 @@ import FAQSchema from '@/components/FAQSchema';
 
 export default function SoportePage() {
     const [submitted, setSubmitted] = useState(false);
+    const [sending, setSending] = useState(false);
     const pathname = usePathname();
     const lang = pathname.startsWith('/en') ? 'en' : 'es';
 
@@ -17,9 +18,30 @@ export default function SoportePage() {
 
     if (!t) return null;
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setSubmitted(true);
+        const form = e.currentTarget;
+        const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+        const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+        const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+        setSending(true);
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            });
+            if (res.ok) {
+                setSubmitted(true);
+            } else {
+                alert(lang === 'es' ? 'Error al enviar el mensaje. Intenta de nuevo.' : 'Error sending message. Please try again.');
+            }
+        } catch {
+            alert(lang === 'es' ? 'Error de conexión. Intenta de nuevo.' : 'Connection error. Please try again.');
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
@@ -159,17 +181,17 @@ export default function SoportePage() {
                                 >
                                     <div>
                                         <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_name}</label>
-                                        <input required type="text" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_name_ph} />
+                                        <input required type="text" name="name" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_name_ph} />
                                     </div>
                                     <div>
                                         <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_email}</label>
-                                        <input required type="email" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_email_ph} />
+                                        <input required type="email" name="email" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff' }} placeholder={t.form_email_ph} />
                                     </div>
                                     <div>
                                         <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--outline)' }}>{t.form_message}</label>
-                                        <textarea required rows={5} style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff', resize: 'vertical' }} placeholder={t.form_message_ph}></textarea>
+                                        <textarea required rows={5} name="message" style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--outline-variant)', background: '#fff', resize: 'vertical' }} placeholder={t.form_message_ph}></textarea>
                                     </div>
-                                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>{t.form_submit}</button>
+                                    <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: sending ? 0.7 : 1, pointerEvents: sending ? 'none' : 'auto' }}>{sending ? (lang === 'es' ? 'ENVIANDO...' : 'SENDING...') : t.form_submit}</button>
                                 </form>
                             )}
                         </div>
@@ -177,11 +199,15 @@ export default function SoportePage() {
                         <div style={{ marginTop: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>mail</span>
-                                <span style={{ fontWeight: 600 }}>contacto@advancedhealth.com.co</span>
+                                <a href="mailto:contacto@advancedhealth.com.co" style={{ fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>contacto@advancedhealth.com.co</a>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>chat</span>
-                                <span style={{ fontWeight: 600 }}>WhatsApp & Phone: (+57) 601 917 8558</span>
+                                <span className="material-symbols-outlined" style={{ color: '#25D366' }}>chat</span>
+                                <a href="https://wa.me/576019178558?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20por%20favor" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>WhatsApp</a>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>call</span>
+                                <a href="tel:+576019178558" style={{ fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>(+57) 601 917 8558</a>
                             </div>
                         </div>
                     </div>

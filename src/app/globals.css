@@ -568,6 +568,31 @@ h6 {
   color: var(--outline);
 }
 
+.search-active-text {
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  font-weight: 500;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0.125rem;
+  transition: background var(--transition-fast);
+}
+
+.search-clear-btn:hover {
+  background: var(--surface-container-high);
+}
+
 /* ─────────────────────────────────────────────── */
 /*  Stars Rating                                   */
 /* ─────────────────────────────────────────────── */

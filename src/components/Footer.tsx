@@ -95,18 +95,36 @@ export default function Footer({ lang, dict }: { lang: string, dict: any }) {
             {t?.brand_desc || "Líderes mundiales en nutrición clínica y soluciones de bienestar de alto impacto."}
           </p>
 
-          <div style={{ marginBottom: '1.5rem' }}>
-            <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--on-surface)', marginBottom: '0.5rem' }}>
-              WhatsApp & Phone:
-            </p>
-            <a
-              href={`https://wa.me/576019178558?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20por%20favor`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: '0.875rem', color: 'var(--primary)', textDecoration: 'none', fontWeight: 700 }}
-            >
-              {t?.contact_phone || "(+57) 601 917 8558"}
-            </a>
+          <div style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '1.125rem', color: 'var(--primary)' }}>mail</span>
+              <a
+                href="mailto:contacto@advancedhealth.com.co"
+                style={{ fontSize: '0.875rem', color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}
+              >
+                contacto@advancedhealth.com.co
+              </a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '1.125rem', color: '#25D366' }}>chat</span>
+              <a
+                href={`https://wa.me/576019178558?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20por%20favor`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: '0.875rem', color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}
+              >
+                WhatsApp
+              </a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '1.125rem', color: 'var(--primary)' }}>call</span>
+              <a
+                href="tel:+576019178558"
+                style={{ fontSize: '0.875rem', color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}
+              >
+                (+57) 601 917 8558
+              </a>
+            </div>
           </div>
 
           <div style={{ display: 'flex', gap: '1rem' }}>

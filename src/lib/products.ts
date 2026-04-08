@@ -1,8 +1,27 @@
 import 'server-only';
 import { supabase } from './supabase';
+import { getDictionary } from './dictionaries';
 import type { Product } from '@/types/product';
 
 export type { Product };
+
+// ─── Virtual Categories ─────────────────────────────────────
+export interface VirtualCategory {
+  slug: string;
+  dbCategories: string[];
+}
+
+export const VIRTUAL_CATEGORIES: VirtualCategory[] = [
+  { slug: 'belleza-y-piel', dbCategories: ['Belleza / Piel', 'Línea Anti-Edad'] },
+  { slug: 'bienestar-digestivo', dbCategories: ['Bienestar General', 'Limpieza / Detox', 'Sistema Base / Limpia', 'Línea Gastronómica'] },
+  { slug: 'belleza-avanzada', dbCategories: ['Belleza / Piel', 'Sistema Base / Regenera', 'Sistema Base / Revitaliza'] },
+  { slug: 'vitalidad-y-bienestar', dbCategories: ['Bienestar General', 'Línea Sport', 'Línea Vigor Mental', 'Línea Inmunológica'] },
+];
+
+export function getDbCategoriesForSlug(slug: string): string[] | null {
+  const vc = VIRTUAL_CATEGORIES.find(v => v.slug === slug);
+  return vc ? vc.dbCategories : null;
+}
 
 function formatCOP(price: number): string {
   return '$' + new Intl.NumberFormat('es-CO').format(price);
@@ -97,7 +116,11 @@ export interface ProductsResult {
 // Products that are not real catalog items (e.g. shipping fees)
 const EXCLUDED_IDS = ['gudd-6'];
 
-export async function getProducts(): Promise<ProductsResult> {
+export async function getProducts(lang?: string): Promise<ProductsResult> {
+  // Load translations if lang is provided
+  const dictionary = lang ? await getDictionary(lang as any).catch(() => null) : null;
+  const productTranslations = dictionary?.product_data || {};
+
   const [fuxionResult, guddResult] = await Promise.all([
     supabase
       .from('FuXion_Productos')
@@ -119,8 +142,24 @@ export async function getProducts(): Promise<ProductsResult> {
   }
 
   const allProducts = [
-    ...(fuxionResult.data ?? []).map(mapFuXion),
-    ...(guddResult.data ?? []).map(mapGudd),
+    ...(guddResult.data ?? []).map(row => {
+      const p = mapGudd(row);
+      const translation = productTranslations[p.id];
+      if (translation) {
+        if (translation.name) p.name = translation.name;
+        if (translation.description) p.description = translation.description;
+      }
+      return p;
+    }),
+    ...(fuxionResult.data ?? []).map(row => {
+      const p = mapFuXion(row);
+      const translation = productTranslations[p.id];
+      if (translation) {
+        if (translation.name) p.name = translation.name;
+        if (translation.description) p.description = translation.description;
+      }
+      return p;
+    }),
   ].filter(p => !EXCLUDED_IDS.includes(p.id));
 
   const featured = allProducts.filter(p => p.destacado);

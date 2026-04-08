@@ -48,7 +48,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   const dict = await getDictionary(lang as 'es' | 'en');
 
-  const { featured } = await getProducts();
+  const { featured } = await getProducts(lang);
   const bestSellersProducts = featured.slice(0, 4);
 
   return (
@@ -270,7 +270,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <BentoCat
             col="span 8"
             label={dict.home.categories_list[0].label}
-            link={`/${lang}/productos?cat=colageno`}
+            link={`/${lang}/productos?categoria=belleza-y-piel`}
             linkText={dict.home.categories_list[0].text}
             imgUrl="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80&fit=crop"
             gradFrom="var(--primary)"
@@ -280,7 +280,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <BentoCat
             col="span 4"
             label={dict.home.categories_list[1].label}
-            link={`/${lang}/productos?cat=vitaminas`}
+            link={`/${lang}/productos?categoria=bienestar-digestivo`}
             linkText={dict.home.categories_list[1].text}
             imgUrl="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=600&q=80&fit=crop"
             gradFrom="var(--secondary)"
@@ -290,7 +290,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <BentoCat
             col="span 4"
             label={dict.home.categories_list[2].label}
-            link={`/${lang}/productos?cat=energia`}
+            link={`/${lang}/productos?categoria=belleza-avanzada`}
             linkText={dict.home.categories_list[2].text}
             imgUrl="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop"
             gradFrom="var(--primary)"
@@ -300,7 +300,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <BentoCat
             col="span 8"
             label={dict.home.categories_list[3].label}
-            link={`/${lang}/productos?cat=bienestar`}
+            link={`/${lang}/productos?categoria=vitalidad-y-bienestar`}
             linkText={dict.home.categories_list[3].text}
             imgUrl="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=80&fit=crop"
             gradFrom="#171c1f"
@@ -643,7 +643,8 @@ function BentoCat({
   labelSize: string;
 }) {
   return (
-    <div
+    <Link
+      href={link}
       style={{
         gridColumn: col,
         position: 'relative',
@@ -651,6 +652,8 @@ function BentoCat({
         borderRadius: 'var(--radius-lg)',
         background: 'var(--surface-container-high)',
         cursor: 'pointer',
+        textDecoration: 'none',
+        display: 'block',
       }}
       className="bento-item"
     >
@@ -693,8 +696,7 @@ function BentoCat({
         >
           {label}
         </h3>
-        <Link
-          href={link}
+        <span
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -705,17 +707,16 @@ function BentoCat({
             fontSize: '0.75rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            textDecoration: 'none',
           }}
         >
           {linkText}{' '}
           <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>
             arrow_forward
           </span>
-        </Link>
+        </span>
       </div>
       <style>{`.bento-item:hover .bento-img { transform: scale(1.05); }`}</style>
-    </div>
+    </Link>
   );
 }
 

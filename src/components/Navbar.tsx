@@ -2,15 +2,32 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import CartDrawer from '@/components/CartDrawer';
 
-export default function Navbar({ lang, dict }: { lang: string, dict: Record<string, string> }) {
+export default function Navbar({ lang, dict, cartDict: externalCartDict }: {
+  lang: string,
+  dict: Record<string, string>,
+  cartDict?: Record<string, string>
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const { itemCount } = useCart();
+  const activeQ = searchParams.get('q') || '';
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const q = searchQuery.trim();
+    if (q) {
+      router.push(`/${lang}/productos?q=${encodeURIComponent(q)}`);
+      setSearchQuery('');
+    }
+  }
 
   // Eliminar el locale del pathname para chequear rutas activas
   const pathWithoutLang = pathname.replace(`/${lang}`, '') || '/';
@@ -23,12 +40,17 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
   ];
 
   const cartDict = {
-    title: dict.cart_title || 'Tu carrito',
-    empty: dict.cart_empty || 'Tu carrito está vacío',
-    total: dict.cart_total || 'Total',
-    clear: dict.cart_clear || 'Vaciar carrito',
-    checkout: dict.cart_checkout || 'Finalizar compra por WhatsApp',
-    remove: dict.cart_remove || 'Eliminar',
+    title: externalCartDict?.title || dict.cart_title || 'Tu carrito',
+    empty: externalCartDict?.empty || dict.cart_empty || 'Tu carrito está vacío',
+    subtotal: externalCartDict?.subtotal || dict.cart_subtotal || 'Subtotal',
+    shipping: externalCartDict?.shipping || dict.cart_shipping || 'Envío',
+    discount: externalCartDict?.discount || dict.cart_discount || 'Descuento',
+    total: externalCartDict?.total || dict.cart_total || 'Total',
+    clear: externalCartDict?.clear || dict.cart_clear || 'Vaciar carrito',
+    checkout: externalCartDict?.checkout || dict.cart_checkout || 'Finalizar compra por WhatsApp',
+    remove: externalCartDict?.remove || dict.cart_remove || 'Eliminar',
+    shipping_progress: externalCartDict?.shipping_progress || 'Te faltan {amount} para el envío gratis',
+    shipping_congrats: externalCartDict?.shipping_congrats || '¡Felicidades! Tienes envío gratis',
   };
 
   return (
@@ -88,12 +110,26 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           {/* Search pill - desktop */}
-          <div className="search-pill desktop-search">
+          <form className="search-pill desktop-search" onSubmit={handleSearch}>
             <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', color: 'var(--outline)' }}>
               search
             </span>
-            <input type="text" placeholder={dict.buscar || "Buscar productos..."} />
-          </div>
+            {activeQ ? (
+              <>
+                <span className="search-active-text">{activeQ}</span>
+                <Link href={pathname} className="search-clear-btn" onClick={() => setSearchQuery('')}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>close</span>
+                </Link>
+              </>
+            ) : (
+              <input
+                type="text"
+                placeholder={dict.buscar || "Buscar productos..."}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            )}
+          </form>
 
           {/* Language Switcher */}
           <Link
@@ -113,20 +149,6 @@ export default function Navbar({ lang, dict }: { lang: string, dict: Record<stri
             {lang === 'en' ? 'ES' : 'EN'}
           </Link>
 
-          {/* Mi Cuenta */}
-          <Link
-            href={`/${lang}/cuenta`}
-            style={{
-              fontSize: '0.875rem',
-              fontFamily: 'var(--font-body)',
-              color: 'var(--outline)',
-              textDecoration: 'none',
-              transition: 'color var(--transition-fast)',
-            }}
-            className="desktop-nav"
-          >
-            {dict.cuenta || "Mi Cuenta"}
-          </Link>
 
           {/* Cart */}
           <button

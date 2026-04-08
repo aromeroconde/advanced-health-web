@@ -15,8 +15,16 @@ interface CartState {
 interface CartContextValue {
   items: CartItem[];
   itemCount: number;
+  subtotal: number;
+  subtotalFormatted: string;
+  shipping: number;
+  shippingFormatted: string;
+  discount: number;
+  discountFormatted: string;
   total: number;
   totalFormatted: string;
+  isFreeShipping: boolean;
+  freeShippingThreshold: number;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
@@ -109,7 +117,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const itemCount = cart.items.reduce((sum, i) => sum + i.quantity, 0);
-  const total = cart.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+  const subtotal = cart.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+  const subtotalFormatted = formatCOP(subtotal);
+
+  const FREE_SHIPPING_THRESHOLD = 150000;
+  const SHIPPING_FEE = 15000;
+
+  const isFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
+  const shipping = subtotal > 0 ? SHIPPING_FEE : 0;
+  const discount = isFreeShipping ? SHIPPING_FEE : 0;
+  const total = subtotal + shipping - discount;
+
+  const shippingFormatted = formatCOP(shipping);
+  const discountFormatted = formatCOP(discount);
   const totalFormatted = formatCOP(total);
 
   return (
@@ -117,8 +137,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items: cart.items,
         itemCount,
+        subtotal,
+        subtotalFormatted,
+        shipping,
+        shippingFormatted,
+        discount,
+        discountFormatted,
         total,
         totalFormatted,
+        isFreeShipping,
+        freeShippingThreshold: FREE_SHIPPING_THRESHOLD,
         addToCart,
         removeFromCart,
         updateQuantity,

@@ -4,7 +4,6 @@
         "ciencia": "Ciencia",
         "acerca_de": "Acerca de",
         "soporte": "Soporte",
-        "cuenta": "Mi Cuenta",
         "buscar": "Buscar productos..."
     },
     "home": {
@@ -47,19 +46,19 @@
         "treatments_label": "Unidades Producidas",
         "categories_list": [
             {
-                "label": "Colágeno",
+                "label": "Belleza y Piel",
                 "text": "Explorar Colección"
             },
             {
-                "label": "Vitaminas",
+                "label": "Bienestar Digestivo",
                 "text": "Ver todo"
             },
             {
-                "label": "Energía",
+                "label": "Belleza Avanzada",
                 "text": "Rendimiento"
             },
             {
-                "label": "Bienestar Integral",
+                "label": "Vitalidad y Bienestar",
                 "text": "Ciencia AH"
             }
         ],
@@ -126,10 +125,15 @@
         "cart": {
             "title": "Tu carrito",
             "empty": "Tu carrito está vacío",
+            "subtotal": "Subtotal",
+            "shipping": "Envío",
+            "discount": "Descuento",
             "total": "Total",
             "clear": "Vaciar carrito",
             "checkout": "Finalizar compra por WhatsApp",
-            "remove": "Eliminar"
+            "remove": "Eliminar",
+            "shipping_progress": "Te faltan {amount} para el envío gratis",
+            "shipping_congrats": "¡Felicidades! Tienes envío gratis"
         }
     },
     "blog": {
@@ -180,35 +184,77 @@
     },
     "nosotros": {
         "badge": "Nuestra",
-        "badge_highlight": "Misión",
+        "badge_highlight": "Historia",
         "title_1": "Redefiniendo el",
         "title_mid": "Estándar",
         "title_highlight": "Vitalidad.",
         "title_connector": "de",
-        "desc": "Nacimos de la necesidad de suplementos que realmente cumplan lo que prometen. Ciencia pura, transparencia total.",
-        "story_title": "Nuestra",
-        "story_highlight": "Historia",
-        "story_p1": "Advanced Health comenzó en un pequeño laboratorio con una idea simple: la nutrición debe ser tratada con la misma rigurosidad que la medicina.",
-        "story_p2": "Hoy, colaboramos con los mejores científicos y nutricionistas del mundo para desarrollar fórmulas que no solo mejoran tu salud, sino que optimizan tu vida.",
-        "story_p3": "No buscamos ser la marca más grande, sino la más confiable. Por eso, cada lote de nuestros productos es sometido a pruebas de terceros para asegurar su pureza y potencia.",
+        "desc": "Con más de 6 años transformando la nutrición clínica en Colombia, combinamos ciencia de vanguardia con un compromiso inquebrantable con la salud de nuestros clientes.",
+        "stats_years_num": "6+",
+        "stats_years_label": "Años de Experiencia",
+        "stats_products_num": "50+",
+        "stats_products_label": "Productos en Catálogo",
+        "stats_cities_num": "30+",
+        "stats_cities_label": "Ciudades con Envíos",
+        "stats_clients_num": "10K+",
+        "stats_clients_label": "Clientes Satisfechos",
+        "mission_title": "Nuestra",
+        "mission_highlight": "Misión",
+        "mission_p1": "Advanced Health Company SAS nació de una convicción profunda: la nutrición debe ser tratada con la misma rigurosidad que la medicina. Somos una empresa colombiana dedicada a mejorar la calidad de vida de jóvenes y adultos a través de productos de alta calidad con respaldo científico.",
+        "mission_p2": "Trabajamos con profesionales con más de 30 años de experiencia investigando enfermedades crónicas y degenerativas, desarrollando fórmulas que no solo suplementan, sino que transforman la salud de quienes las consumen.",
+        "mission_p3": "Nuestro compromiso va más allá de vender productos. Queremos educar, acompañar y empoderar a cada persona para que tome decisiones informadas sobre su bienestar.",
         "values_title": "Nuestros",
         "values_highlight": "Valores",
         "values": [
             {
                 "title": "Ciencia Aplicada",
-                "desc": "No creemos en tendencias, creemos en datos. Cada fórmula es el resultado de años de investigación científica."
+                "desc": "No creemos en tendencias sin fundamento. Cada fórmula es el resultado de años de investigación científica con respaldo médico comprobado.",
+                "icon": "biotech"
             },
             {
                 "title": "Pureza Absoluta",
-                "desc": "Seleccionamos solo ingredientes con la mayor biodisponibilidad, libres de rellenos innecesarios."
+                "desc": "Seleccionamos solo ingredientes con la más alta biodisponibilidad. Sin rellenos, sin colorantes artificiales. Solo lo que tu cuerpo necesita.",
+                "icon": "verified"
             },
             {
-                "title": "Rendimiento Humano",
-                "desc": "Nuestra misión es potenciar tu biología para que alcances tu máximo potencial físico y mental."
+                "title": "Transparencia Total",
+                "desc": "Trazabilidad completa de cada lote. Todos nuestros productos de la línea FuXion cuentan con registro INVIMA vigente.",
+                "icon": "visibility"
+            },
+            {
+                "title": "Compromiso Social",
+                "desc": "Creemos que la salud de calidad debe ser accesible. Por eso ofrecemos asesoría personalizada sin costo y planes de bienestar para toda la familia.",
+                "icon": "favorite"
+            },
+            {
+                "title": "Innovación Constante",
+                "desc": "Investigamos y desarrollamos nuevas fórmulas continuamente, incorporando los últimos avances en nutrición clínica y tecnología de ingredientes.",
+                "icon": "rocket_launch"
+            },
+            {
+                "title": "Acompañamiento Humano",
+                "desc": "No eres un número. Nuestro equipo de asesores te acompaña en cada paso, desde la elección del producto hasta tu seguimiento personalizado.",
+                "icon": "support_agent"
             }
         ],
-        "cta": "¿Listo para el siguiente nivel?",
-        "cta_btn": "EXPLORAR PRODUCTOS"
+        "brands_title": "Marcas que",
+        "brands_highlight": "Distribuimos",
+        "brands_desc": "Trabajamos con marcas de clase mundial que comparten nuestra visión de salud integral y calidad superior.",
+        "brands_fuxion_name": "FuXion",
+        "brands_fuxion_desc": "Líder en nutrición funcional en Latinoamérica. Fórmulas innovadoras con registro INVIMA que combinan ciencia y naturaleza para resultados medibles.",
+        "brands_gudd_name": "gudd",
+        "brands_gudd_desc": "Suplementos alimenticios de alta calidad diseñados con especial enfoque en el bienestar del adulto mayor. Fórmulas con registro INVIMA vigente que apoyan la vitalidad, la movilidad y la calidad de vida en cada etapa.",
+        "coverage_title": "Cobertura",
+        "coverage_highlight": "Nacional",
+        "coverage_desc": "Llegamos a todo Colombia a través de nuestros aliados logísticos. Envíos seguros y rastreables a la puerta de tu casa.",
+        "coverage_feature1": "Envíos a principales ciudades del país",
+        "coverage_feature2": "Aliados logísticos confiables",
+        "coverage_feature3": "Empaque discreto y seguro",
+        "coverage_feature4": "Seguimiento en tiempo real",
+        "cta_title": "¿Listo para transformar tu salud?",
+        "cta_desc": "Descubre nuestra línea completa de productos respaldados por ciencia y comienza tu viaje hacia una vida más plena.",
+        "cta_btn": "EXPLORAR PRODUCTOS",
+        "cta_whatsapp": "HABLAR POR WHATSAPP"
     },
     "soporte": {
         "title": "Estamos para Ayudarte.",
@@ -217,20 +263,20 @@
         "faq_highlight": "Frecuentes",
         "faqs": [
             {
-                "q": "¿Cómo puedo rastrear mi pedido?",
-                "a": "Una vez que tu pedido sea despachado, recibirás un correo electrónico con el número de guía y un enlace para el seguimiento en tiempo real."
-            },
-            {
-                "q": "¿Los productos tienen registro sanitario?",
-                "a": "Sí, absolutamente todos nuestros productos cuentan con registro INVIMA vigente y cumplen con los más altos estándares de calidad."
+                "q": "¿Cómo puedo realizar mi pedido?",
+                "a": "Puedes realizar tu pedido directamente por nuestra tienda en línea o escribiéndonos por WhatsApp al (+57) 601 917 8558. Te asesoramos en todo el proceso."
             },
             {
                 "q": "¿Hacen envíos a todo el país?",
-                "a": "Realizamos envíos a todas las ciudades principales e intermedias de Colombia a través de nuestros aliados logísticos."
+                "a": "Sí, realizamos envíos a todas las ciudades principales e intermedias de Colombia a través de nuestros aliados logísticos."
             },
             {
-                "q": "¿Cuál es la política de devoluciones?",
-                "a": "Si no estás satisfecho con tu compra, tienes hasta 30 días para solicitar un cambio o devolución de dinero, siempre que el producto esté sellado."
+                "q": "¿Los productos tienen registro INVIMA?",
+                "a": "Sí, nuestros productos de la línea FuXion cuentan con registro INVIMA vigente y cumplen con los más altos estándares de calidad. Los productos gudd son de uso cosmético/dermatológico."
+            },
+            {
+                "q": "¿Cómo puedo contactar a un asesor?",
+                "a": "Puedes escribirnos por WhatsApp, llamar al (+57) 601 917 8558 o enviar un mensaje a contacto@advancedhealth.com.co. Atendemos las 24 horas, los 7 días de la semana por WhatsApp y línea de voz."
             }
         ],
         "form_title": "Escríbenos",

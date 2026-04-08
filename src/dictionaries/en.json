@@ -4,7 +4,6 @@
         "ciencia": "Science",
         "acerca_de": "About Us",
         "soporte": "Support",
-        "cuenta": "My Account",
         "buscar": "Search products..."
     },
     "home": {
@@ -47,19 +46,19 @@
         "treatments_label": "Units Produced",
         "categories_list": [
             {
-                "label": "Collagen",
+                "label": "Beauty & Skin",
                 "text": "Explore Collection"
             },
             {
-                "label": "Vitamins",
+                "label": "Digestive Wellness",
                 "text": "See all"
             },
             {
-                "label": "Energy",
+                "label": "Advanced Beauty",
                 "text": "Performance"
             },
             {
-                "label": "Holistic Wellness",
+                "label": "Vitality & Wellness",
                 "text": "AH Science"
             }
         ],
@@ -126,10 +125,15 @@
         "cart": {
             "title": "Your cart",
             "empty": "Your cart is empty",
+            "subtotal": "Subtotal",
+            "shipping": "Shipping",
+            "discount": "Discount",
             "total": "Total",
             "clear": "Clear cart",
-            "checkout": "Checkout via WhatsApp",
-            "remove": "Remove"
+            "checkout": "Finalize purchase via WhatsApp",
+            "remove": "Remove",
+            "shipping_progress": "You are {amount} away from free shipping",
+            "shipping_congrats": "Congrats! Free Shipping Applied"
         }
     },
     "blog": {
@@ -180,35 +184,82 @@
     },
     "nosotros": {
         "badge": "Our",
-        "badge_highlight": "Mission",
+        "badge_highlight": "Story",
         "title_1": "Redefining the",
         "title_mid": "Standard",
         "title_highlight": "Vitality.",
         "title_connector": "of",
-        "desc": "We were born from the need for supplements that truly deliver on their promises. Pure science, total transparency.",
+        "desc": "With over 6 years transforming clinical nutrition in Colombia, we combine cutting-edge science with an unwavering commitment to our clients' health.",
         "story_title": "Our",
         "story_highlight": "Story",
-        "story_p1": "Advanced Health started in a small laboratory with a simple idea: nutrition should be treated with the same rigor as medicine.",
-        "story_p2": "Today, we collaborate with the world's best scientists and nutritionists to develop formulas that not only improve your health but optimize your life.",
-        "story_p3": "We don't aim to be the biggest brand, but the most trustworthy. That's why every batch of our products undergoes third-party testing to ensure purity and potency.",
+        "story_p1": "Advanced Health Company SAS was born from a deep conviction: nutrition should be treated with the same rigor as medicine. We are a Colombian company dedicated to improving the quality of life for young people and adults through high-quality products backed by science.",
+        "story_p2": "We work with professionals with over 30 years of experience researching chronic and degenerative diseases, developing formulas that not only supplement but transform the health of those who consume them.",
+        "story_p3": "Our commitment goes beyond selling products. We want to educate, support, and empower every person to make informed decisions about their well-being.",
+        "stats_years_num": "6+",
+        "stats_years_label": "Years of Experience",
+        "stats_products_num": "50+",
+        "stats_products_label": "Products in Catalog",
+        "stats_cities_num": "30+",
+        "stats_cities_label": "Cities Served",
+        "stats_clients_num": "10K+",
+        "stats_clients_label": "Satisfied Clients",
+        "mission_title": "Our",
+        "mission_highlight": "Mission",
+        "mission_p1": "Advanced Health Company SAS was born from a deep conviction: nutrition should be treated with the same rigor as medicine. We are a Colombian company dedicated to improving the quality of life of young people and adults through high-quality, scientifically-backed products.",
+        "mission_p2": "We work with professionals who have over 30 years of experience researching chronic and degenerative diseases, developing formulas that don't just supplement — they transform the health of those who consume them.",
+        "mission_p3": "Our commitment goes beyond selling products. We want to educate, support, and empower every person to make informed decisions about their well-being.",
         "values_title": "Our",
         "values_highlight": "Values",
         "values": [
             {
                 "title": "Applied Science",
-                "desc": "We don't believe in trends, we believe in data. Every formula is the result of years of scientific research."
+                "desc": "We don't believe in unfounded trends. Every formula is the result of years of scientific research with proven medical support.",
+                "icon": "biotech"
             },
             {
                 "title": "Absolute Purity",
-                "desc": "We select only ingredients with the highest bioavailability, free from unnecessary fillers."
+                "desc": "We select only ingredients with the highest bioavailability. No fillers, no artificial colorants. Only what your body needs.",
+                "icon": "verified"
             },
             {
-                "title": "Human Performance",
-                "desc": "Our mission is to enhance your biology so you can reach your maximum physical and mental potential."
+                "title": "Total Transparency",
+                "desc": "Complete traceability of every batch. All our FuXion products have valid INVIMA health registration.",
+                "icon": "visibility"
+            },
+            {
+                "title": "Social Commitment",
+                "desc": "We believe quality health should be accessible. That's why we offer free personalized advice and wellness plans for the whole family.",
+                "icon": "favorite"
+            },
+            {
+                "title": "Constant Innovation",
+                "desc": "We continuously research and develop new formulas, incorporating the latest advances in clinical nutrition and ingredient technology.",
+                "icon": "rocket_launch"
+            },
+            {
+                "title": "Human Support",
+                "desc": "You're not a number. Our team of advisors accompanies you every step of the way, from product selection to your personalized follow-up.",
+                "icon": "support_agent"
             }
         ],
-        "cta": "Ready for the next level?",
-        "cta_btn": "EXPLORE PRODUCTS"
+        "brands_title": "Brands We",
+        "brands_highlight": "Distribute",
+        "brands_desc": "We work with world-class brands that share our vision of holistic wellness and superior quality.",
+        "brands_fuxion_name": "FuXion",
+        "brands_fuxion_desc": "Leader in functional nutrition in Latin America. Innovative formulas with INVIMA registration that combine science and nature for measurable results.",
+        "brands_gudd_name": "gudd",
+        "brands_gudd_desc": "High-quality dietary supplements designed with a special focus on senior wellness. Formulas with valid INVIMA registration that support vitality, mobility, and quality of life at every stage.",
+        "coverage_title": "National",
+        "coverage_highlight": "Coverage",
+        "coverage_desc": "We reach all of Colombia through our logistics partners. Safe and trackable shipments to your doorstep.",
+        "coverage_feature1": "Shipments to major cities nationwide",
+        "coverage_feature2": "Reliable logistics partners",
+        "coverage_feature3": "Discreet and secure packaging",
+        "coverage_feature4": "Real-time tracking",
+        "cta_title": "Ready to transform your health?",
+        "cta_desc": "Discover our complete line of science-backed products and begin your journey toward a fuller life.",
+        "cta_btn": "EXPLORE PRODUCTS",
+        "cta_whatsapp": "CHAT ON WHATSAPP"
     },
     "soporte": {
         "title": "We're Here to Help.",
@@ -217,20 +268,20 @@
         "faq_highlight": "Questions",
         "faqs": [
             {
-                "q": "How can I track my order?",
-                "a": "Once your order is shipped, you'll receive an email with the tracking number and a link for real-time tracking."
-            },
-            {
-                "q": "Are the products FDA approved?",
-                "a": "Yes, all our products comply with the highest quality standards and have valid health registrations."
+                "q": "How can I place an order?",
+                "a": "You can place your order directly through our online store or by writing to us on WhatsApp at (+57) 601 917 8558. We'll guide you through the entire process."
             },
             {
                 "q": "Do you ship nationwide?",
-                "a": "We ship to all major and intermediate cities through our logistics partners."
+                "a": "Yes, we ship to all major and intermediate cities in Colombia through our logistics partners."
             },
             {
-                "q": "What is the return policy?",
-                "a": "If you're not satisfied with your purchase, you have up to 30 days to request an exchange or refund, as long as the product is sealed."
+                "q": "Are the products registered?",
+                "a": "Yes, our FuXion products have valid INVIMA health registrations and meet the highest quality standards. gudd products are cosmetic/dermatological use."
+            },
+            {
+                "q": "How can I contact an advisor?",
+                "a": "You can reach us via WhatsApp, call (+57) 601 917 8558, or email contacto@advancedhealth.com.co. We are available 24/7 via WhatsApp and voice line."
             }
         ],
         "form_title": "Write to Us",
@@ -280,5 +331,175 @@
         "disclaimer": "This product is not intended to diagnose, treat, cure or prevent any disease. Results may vary. Always consult with your physician before starting any nutritional supplement.",
         "contact_phone": "(+57) 601 917 8558",
         "copyright": "© 2024 Advanced Health. Clinical Excellence & Editorial Vitality."
+    },
+    "product_data": {
+        "gudd-4": {
+            "name": "Gudd Fiber 300g",
+            "description": "Gudd Fiber - High-quality dietary supplement based on soy fiber, psyllium, flaxseed, green tea, oats, and dragon fruit extract. Enriched with prebiotics (FOS) and probiotics. Stevia sweetened. Delicious yellow fruits flavor. 300g presentation."
+        },
+        "gudd-5": {
+            "name": "Gudd Detox Tea 300g",
+            "description": "Gudd Detox - Specialized formula with pomegranate, hibiscus, grape seeds, green tea, spirulina, and glucomannan. Enriched with essential vitamins and minerals. Stevia sweetened. Refreshing green apple flavor. 300g presentation."
+        },
+        "gudd-2": {
+            "name": "Threepack - Collagen Peptides Gudd 1.5kg",
+            "description": "Threepack - Comprehensive hydrolyzed collagen supplement. Includes probiotics, choline, whey protein, vitamins A, C, D, E, K, B-complex, and essential minerals like calcium, zinc, iron, and magnesium. No added sugar, stevia sweetened. Vanilla flavor. 3 containers of 500g each."
+        },
+        "gudd-1": {
+            "name": "Collagen Peptides Gudd 500g",
+            "description": "Premium hydrolyzed collagen supplement with probiotics, vitamins, and minerals. Specifically formulated to support joint health and overall vitality. Delicious vanilla flavor, no added sugar."
+        },
+        "fuxion-FUX-LIQUIDFIBER-28": {
+            "name": "Liquid Fiber (28 sticks)",
+            "description": "Functional fiber for intestinal cleansing and digestive regularity throughout the day."
+        },
+        "fuxion-FUX-BIOPROTECT-14": {
+            "name": "Biopro+Tect (14 sticks)",
+            "description": "Protein of high biological value for regeneration, immunity, and recovery."
+        },
+        "fuxion-FUX-ACTBIOPROX-14-VC": {
+            "name": "Active Biopro X - Vanilla (14 sticks)",
+            "description": "High bioavailability plant protein for tissue regeneration and immune support."
+        },
+        "fuxion-FUX-ACTBIOPROX-14-CHA": {
+            "name": "Active Biopro X - Chocolate (14 sticks)",
+            "description": "High bioavailability plant protein for tissue regeneration and immune support."
+        },
+        "fuxion-FUX-VITAXTRAT-28": {
+            "name": "Vita Xtra T+ (28 sticks)",
+            "description": "Long-lasting energy drink for vitality, performance, and antioxidant support."
+        },
+        "fuxion-FUX-VITAXTRAT-07": {
+            "name": "Vita Xtra T+ (7 sticks)",
+            "description": "Long-lasting energy drink for vitality, performance, and antioxidant support."
+        },
+        "fuxion-FUX-VERA-07": {
+            "name": "Vera+ (7 sticks)",
+            "description": "Immunological drink to strengthen defenses and support respiratory health."
+        },
+        "fuxion-FUX-VERA-28": {
+            "name": "Vera+ (28 sticks)",
+            "description": "Immunological drink to strengthen defenses and support respiratory health."
+        },
+        "fuxion-FUX-GANOMAS-28": {
+            "name": "Ganomás Cappuccino (28 sticks)",
+            "description": "Functional drink with ganoderma for defenses, antioxidants, and overall support."
+        },
+        "fuxion-FUX-THERMOT3-07": {
+            "name": "Thermo T3 (7 sticks)",
+            "description": "Thermogenic drink to support weight loss and transform fat into energy."
+        },
+        "fuxion-FUX-THERMOT3-28": {
+            "name": "Thermo T3 (28 sticks)",
+            "description": "Thermogenic drink to support weight loss and transform fat into energy."
+        },
+        "fuxion-FUX-NOCARBT-07": {
+            "name": "Nocarb-T (7 sticks)",
+            "description": "Functional drink to help control carbohydrate and sugar assimilation."
+        },
+        "fuxion-FUX-NOCARBT-28": {
+            "name": "Nocarb-T (28 sticks)",
+            "description": "Functional drink to help control carbohydrate and sugar assimilation."
+        },
+        "fuxion-FUX-BIOPROFIT-14": {
+            "name": "Biopro+Fit (14 sticks)",
+            "description": "Functional protein focused on weight control, toning, and lean mass support."
+        },
+        "fuxion-FUX-ACTFITX-14-VC": {
+            "name": "Active Fit Biopro X - Vanilla (14 sticks)",
+            "description": "High bioavailability plant protein focused on metabolism, satiety, and fat control."
+        },
+        "fuxion-FUX-ACTFITX-14-CHA": {
+            "name": "Active Fit Biopro X - Chocolate (14 sticks)",
+            "description": "High bioavailability plant protein focused on metabolism, satiety, and fat control."
+        },
+        "fuxion-FUX-CAFEFIT-28": {
+            "name": "Café & Café Fit (28 sticks)",
+            "description": "Functional coffee focused on weight, appetite, and measurements control."
+        },
+        "fuxion-FUX-PACK514-74": {
+            "name": "5/14 Pack",
+            "description": "Comprehensive weight control pack combining cleansing, toning, energy, and metabolic control."
+        },
+        "fuxion-FUX-COOLAGE-28": {
+            "name": "Cool Age (28 sticks)",
+            "description": "Anti-aging drink focused on skin, hair, and nails from internal nutrition."
+        },
+        "fuxion-FUX-HGH-28": {
+            "name": "HGH (28 sticks)",
+            "description": "Anti-aging drink for vitality, skin elasticity, and rest."
+        },
+        "fuxion-FUX-PASSION-28": {
+            "name": "Passion (28 sticks)",
+            "description": "Functional drink for vitality, energy, and intimate vigor."
+        },
+        "fuxion-FUX-GOLDENFLX-28": {
+            "name": "Golden FLX (28 sticks)",
+            "description": "Functional drink for joints, mobility, and anti-inflammatory support."
+        },
+        "fuxion-FUX-PROBAL-28": {
+            "name": "Probal (28 sticks)",
+            "description": "Herbal tea for female hormonal balance and emotional well-being."
+        },
+        "fuxion-FUX-ON-07": {
+            "name": "ON (7 sticks)",
+            "description": "Drink for focus, memory, and mental energy during the day."
+        },
+        "fuxion-FUX-ON-28": {
+            "name": "ON (28 sticks)",
+            "description": "Drink for focus, memory, and mental energy during the day."
+        },
+        "fuxion-FUX-OFF-07": {
+            "name": "OFF (7 sticks)",
+            "description": "Functional drink for relaxation, focus, and stress resistance."
+        },
+        "fuxion-FUX-OFF-28": {
+            "name": "OFF (28 sticks)",
+            "description": "Functional drink for relaxation, focus, and stress resistance."
+        },
+        "fuxion-FUX-PRESPORT-28": {
+            "name": "Pre Sport (28 sticks)",
+            "description": "Pre-workout drink for hydration, energy, and better physical performance."
+        },
+        "fuxion-FUX-POSTSPORT-28": {
+            "name": "Post Sport (28 sticks)",
+            "description": "Rehydrating and restorative post-workout drink for muscle recovery."
+        },
+        "fuxion-FUX-BIOPROSPORT-14": {
+            "name": "Biopro+Sport (14 sticks)",
+            "description": "Sport protein for muscle mass, performance, and recovery."
+        },
+        "fuxion-FUX-ACTSPORTX-14-VC": {
+            "name": "Active Sport Biopro X (14 sticks)",
+            "description": "Plant-based sport protein for muscle growth, recovery, and antioxidant defense."
+        },
+        "fuxion-FUX-PROBIX-28": {
+            "name": "Probix (28 sticks)",
+            "description": "Functional condiment with probiotics to sprinkle over meals."
+        },
+        "fuxion-FUX-PRUNEX1-28": {
+            "name": "Prunex 1 (28 sticks)",
+            "description": "Functional cleansing drink focused on intestinal regularity and colon purification."
+        },
+        "fuxion-FUX-PRUNEX1-07": {
+            "name": "Prunex 1 (7 sticks)",
+            "description": "Functional cleansing drink focused on intestinal regularity and colon purification."
+        },
+        "fuxion-FUX-FLORALIV-28": {
+            "name": "Flora Liv (28 sticks)",
+            "description": "Probiotics and fiber to balance intestinal flora and support digestion and immunity."
+        },
+        "fuxion-FUX-FLORALIV-07": {
+            "name": "Flora Liv (7 sticks)",
+            "description": "Probiotics and fiber to balance intestinal flora and support digestion and immunity."
+        },
+        "fuxion-FUX-KITDETOX-07": {
+            "name": "Colon Detox Kit (7 days)",
+            "description": "7-day kit for colon cleansing and intestinal flora balance."
+        },
+        "fuxion-FUX-VITAENERGIA-28": {
+            "name": "Vitaenergía (28 sticks)",
+            "description": "Revitalization drink for daily energy, well-being, and antioxidant support."
+        }
     }
 }

@@ -126,7 +126,7 @@ export default async function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <CartProvider>
-          <Navbar lang={lang} dict={dict.navbar} />
+          <Navbar lang={lang} dict={dict.navbar} cartDict={dict.productos.cart} />
           <main id="main-content">{children}</main>
           <Footer lang={lang} dict={dict.footer} />
           <ChatWidget />

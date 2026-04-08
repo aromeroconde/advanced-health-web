@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionaries';
-import { getProducts } from '@/lib/products';
+import { getProducts, getDbCategoriesForSlug, VIRTUAL_CATEGORIES } from '@/lib/products';
 import CarouselArrows from '@/components/CarouselArrows';
 import ProductCard from '@/components/ProductCard';
 import type { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 
 const BASE_URL = 'https://www.advancedhealth.com.co';
 
@@ -53,9 +55,30 @@ const CATEGORY_ICONS: Record<string, string> = {
   'Kits de Salud': 'medical_services',
   'Gudd': 'eco',
   'gudd': 'eco',
+  // Virtual categories
+  'belleza-y-piel': 'spa',
+  'bienestar-digestivo': 'nutrition',
+  'belleza-avanzada': 'auto_awesome',
+  'vitalidad-y-bienestar': 'fitness_center',
 };
 
-export default async function ProductosPage({ params, searchParams }: { params: Promise<{ lang: string }>; searchParams: Promise<{ categoria?: string; marca?: string; page?: string }> }) {
+// Virtual category labels for display
+const VIRTUAL_CATEGORY_LABELS: Record<string, Record<string, string>> = {
+  es: {
+    'belleza-y-piel': 'Belleza y Piel',
+    'bienestar-digestivo': 'Bienestar Digestivo',
+    'belleza-avanzada': 'Belleza Avanzada',
+    'vitalidad-y-bienestar': 'Vitalidad y Bienestar',
+  },
+  en: {
+    'belleza-y-piel': 'Beauty & Skin',
+    'bienestar-digestivo': 'Digestive Wellness',
+    'belleza-avanzada': 'Advanced Beauty',
+    'vitalidad-y-bienestar': 'Vitality & Wellness',
+  },
+};
+
+export default async function ProductosPage({ params, searchParams }: { params: Promise<{ lang: string }>; searchParams: Promise<{ categoria?: string; marca?: string; page?: string; q?: string }> }) {
   const { lang } = await params;
   const filters = await searchParams;
   const dict = await getDictionary(lang as 'es' | 'en');
@@ -64,15 +87,33 @@ export default async function ProductosPage({ params, searchParams }: { params: 
   const modalDict = t.modal;
   const cartDict = t.cart;
 
-  const { featured, products, categories } = await getProducts();
+  const { featured, products, categories } = await getProducts(lang);
 
   // Apply filters from URL search params
   let filtered = products;
   if (filters.categoria && filters.categoria !== 'Todos los Productos' && filters.categoria !== 'All Products') {
-    filtered = filtered.filter(p => p.category === filters.categoria);
+    const virtualCats = getDbCategoriesForSlug(filters.categoria);
+    if (virtualCats) {
+      // Categoría virtual: expandir a múltiples categorías de BD (case-insensitive)
+      filtered = filtered.filter(p => virtualCats.some(vc => p.category.toLowerCase() === vc.toLowerCase()));
+    } else {
+      // Categoría directa de BD (case-insensitive)
+      filtered = filtered.filter(p => p.category.toLowerCase() === filters.categoria!.toLowerCase());
+    }
   }
   if (filters.marca) {
     filtered = filtered.filter(p => p.marca === filters.marca);
+  }
+  if (filters.q) {
+    const normalize = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const q = normalize(filters.q);
+    filtered = filtered.filter(p =>
+      normalize(p.name).includes(q) ||
+      normalize(p.description).includes(q) ||
+      (p.category && normalize(p.category).includes(q)) ||
+      (p.brand && normalize(p.brand).includes(q)) ||
+      (p.presentation && normalize(p.presentation).includes(q))
+    );
   }
 
   // Pagination
@@ -84,6 +125,7 @@ export default async function ProductosPage({ params, searchParams }: { params: 
     const params = new URLSearchParams();
     if (filters.categoria) params.set('categoria', filters.categoria);
     if (filters.marca) params.set('marca', filters.marca);
+    if (filters.q) params.set('q', filters.q);
     if (page > 1) params.set('page', String(page));
     const qs = params.toString();
     return `/${lang}/productos${qs ? `?${qs}` : ''}`;
@@ -91,7 +133,7 @@ export default async function ProductosPage({ params, searchParams }: { params: 
 
   const activeCategory = filters.categoria || 'Todos los Productos';
   const activeMarca = filters.marca || '';
-  const marcas = ['FuXion', 'gudd'];
+  const marcas = ['gudd', 'FuXion'];
 
   return (
     <>
@@ -222,20 +264,29 @@ export default async function ProductosPage({ params, searchParams }: { params: 
           {/* Category filter */}
           <div className="filter-row">
             <span className="filter-row-label">{isEn ? 'Category' : 'Categoría'}:</span>
-            {categories.map((cat: string) => {
-              const isActive = activeCategory === cat;
-              const icon = CATEGORY_ICONS[cat] || 'label';
-              const href = cat === 'Todos los Productos'
-                ? (activeMarca ? `/${lang}/productos?marca=${encodeURIComponent(activeMarca)}` : `/${lang}/productos`)
-                : `/${lang}/productos?categoria=${encodeURIComponent(cat)}${activeMarca ? `&marca=${encodeURIComponent(activeMarca)}` : ''}`;
+            {/* "All" pill */}
+            <Link
+              href={activeMarca ? `/${lang}/productos?marca=${encodeURIComponent(activeMarca)}` : `/${lang}/productos`}
+              className={`filter-pill ${activeCategory === 'Todos los Productos' ? 'filter-pill-active' : ''}`}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>apps</span>
+              {isEn ? 'All Products' : 'Todos los Productos'}
+            </Link>
+            {/* Virtual category pills */}
+            {VIRTUAL_CATEGORIES.map((vc) => {
+              const isActive = activeCategory === vc.slug;
+              const labels = VIRTUAL_CATEGORY_LABELS[lang as 'es' | 'en'] || VIRTUAL_CATEGORY_LABELS.es;
+              const label = labels[vc.slug] || vc.slug;
+              const icon = CATEGORY_ICONS[vc.slug] || 'label';
+              const href = `/${lang}/productos?categoria=${encodeURIComponent(vc.slug)}${activeMarca ? `&marca=${encodeURIComponent(activeMarca)}` : ''}`;
               return (
                 <Link
-                  key={cat}
+                  key={vc.slug}
                   href={href}
                   className={`filter-pill ${isActive ? 'filter-pill-active' : ''}`}
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>{icon}</span>
-                  {cat}
+                  {label}
                 </Link>
               );
             })}
