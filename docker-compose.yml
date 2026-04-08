@@ -1,23 +1,32 @@
 version: '3.8'
 
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
+  web_advanced:
+    image: ghcr.io/aromeroconde/new-web-ahc:latest
+    networks:
+      - general_network
     environment:
       - RESEND_API_KEY=${RESEND_API_KEY}
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.advanced-health.rule=Host(`advancedhealth.com.co`) || Host(`www.advancedhealth.com.co`)"
-      - "traefik.http.routers.advanced-health.entrypoints=websecure"
-      - "traefik.http.routers.advanced-health.tls.certresolver=myresolver"
-      - "traefik.http.services.advanced-health.loadbalancer.server.port=3000"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        order: start-first
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=general_network
+        - "traefik.http.routers.advanced-web.rule=Host(`advancedhealth.com.co`) || Host(`www.advancedhealth.com.co`)"
+        - traefik.http.routers.advanced-web.entrypoints=websecure
+        - traefik.http.routers.advanced-web.tls=true
+        - traefik.http.routers.advanced-web.tls.certresolver=letsencryptresolver
+        - traefik.http.services.advanced-web.loadbalancer.server.port=3000
 
 networks:
-  default:
-    external:
-      name: traefik_network # Change this to your actual Traefik network name
+  general_network:
+    external: true
+    name: general_network
