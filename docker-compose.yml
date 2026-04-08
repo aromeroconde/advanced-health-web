@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.advanced-health.rule=Host(`advancedhealth.com.co`) || Host(`www.advancedhealth.com.co`)"
+      - "traefik.http.routers.advanced-health.entrypoints=websecure"
+      - "traefik.http.routers.advanced-health.tls.certresolver=myresolver"
+      - "traefik.http.services.advanced-health.loadbalancer.server.port=3000"
+
+networks:
+  default:
+    external:
+      name: traefik_network # Change this to your actual Traefik network name
